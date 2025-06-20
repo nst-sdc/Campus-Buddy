@@ -1,0 +1,136 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #e6f3ff, #ffffff, #f3e6ff);
+}
+
+.auth-box {
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.auth-header h1 {
+  color: #2563eb;
+  margin: 0.5rem 0 0.2rem;
+}
+
+.auth-header p {
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 0;
+}
+
+.auth-logo {
+  font-size: 2rem;
+}
+
+.user-toggle {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 0.6rem 0;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #eee;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-btn:first-child {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.toggle-btn:last-child {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.toggle-btn.active {
+  background-color: #2563eb;
+  color: white;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 0.7rem;
+  margin: 0.5rem 0;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.auth-form input:focus {
+  border-color: #2563eb;
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 0.7rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.auth-form button:hover {
+  background-color: #1d4ed8;
+}
+
+.auth-footer {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.auth-footer span {
+  color: #2563eb;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+.gradient-button {
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  color: white;
+  border: none;
+  padding: 0.7rem;
+  width: 100%;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.gradient-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+}
