@@ -7,13 +7,16 @@ import Footer from './components/Footer.jsx'
 const App = () => {
   return (
     <>
-    <Footer/>
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<MyEvents />} />
-        <Route path="/events" element={<Events />} />
-      </Routes>
+      <div>
+        <div>
+          <Routes>
+            <Route path="/home" element={<Home />} />
+            <Route path="/myevents" element={<MyEvents />} />
+            <Route path="/events" element={<Events />} />
+          </Routes>
+        </div>
+      </div>
       <Footer/>
     </Router>
     </>
@@ -21,5 +24,6 @@ const App = () => {
 };
 
 export default App;
+
 
 
