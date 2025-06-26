@@ -30,7 +30,7 @@ const Footer = () => {
                     <h3>Quick Links</h3>
                     <ul className="no-bullets">
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">Events</a></li>
+                        <li><Link to='/clubpage'>Events/Clubpage</Link></li>
                         <li><Link to="/MyEvents">My Events</Link></li>
                         <li><Link to="/login">Login</Link></li>
                         <li><a href="#">Notifications</a></li>
