@@ -29,7 +29,7 @@ const Footer = () => {
                 <div className="footer-section links" style={{ marginLeft: '100px' }}>
                     <h3>Quick Links</h3>
                     <ul className="no-bullets">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="/home">Home</a></li>
                         <li><Link to='/clubpage'>Clubs</Link></li>
                         <li><Link to="/MyEvents">My Events</Link></li>
                         <li><Link to="/login">Login</Link></li>
