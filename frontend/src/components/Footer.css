@@ -80,7 +80,6 @@
     font-size: 24px;
     font-weight: 700;
     background: var(--gradient-heading);
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
