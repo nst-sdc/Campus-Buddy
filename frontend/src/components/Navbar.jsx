@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { ThemeContext } from '../context/ThemeContext.jsx';
 import {
   FaCalendarAlt,
   FaBook,
@@ -12,6 +13,7 @@ import './Navbar.css';
 
 const Navbar = ({ userType }) => {
   const clubId = 'robotics';
+  const { toggleTheme, theme } = useContext(ThemeContext); // ✅ fixed
 
   const commonLinks = [
     { to: '/home', label: 'Home', icon: <FaCalendarAlt /> },
@@ -52,8 +54,10 @@ const Navbar = ({ userType }) => {
             <FaSignInAlt /> Login
           </Link>
         </li>
-        <li>
-          <button className="theme-toggle">🌓</button>
+        <li> {/* ✅ wrap button in <li> */}
+          <button className="theme-toggle" onClick={toggleTheme}>
+            {theme === 'light' ? '🌙' : '☀️'}
+          </button>
         </li>
         <li>
           <Link to="/profilecard">

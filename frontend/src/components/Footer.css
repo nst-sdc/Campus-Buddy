@@ -1,82 +1,89 @@
 .footer {
-  background: #0f172a;
-  color: white;
-  padding: 50px 40px 30px;
-  transition: all 0.4s ease;
+    background: var(--nav-bg);
+    color: var(--text-color);
+    padding: 50px 40px 30px;
+    transition: all 0.4s ease;
 }
 
 .footer-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 1300px;
-  margin: auto;
-  gap: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1300px;
+    margin: auto;
+    gap: 40px;
 }
 
 .footer-section {
-  flex: 1 1 250px;
+    flex: 1 1 250px;
 }
 
 .footer-section h3 {
-  font-size: 18px;
-  margin-bottom: 15px;
-  font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
 }
 
 .footer-section ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .footer-section ul li {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .footer-section ul li a {
-  color: inherit;
-  text-decoration: none;
-  transition: color 0.3s ease;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .footer-section ul li a:hover {
-  color: #8b5cf6; /* violet-500 */
+    color: var(--footer-hover-accent);
 }
 
 .footer-section.contact p {
-  margin: 8px 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
 }
 
 .social-icons a {
-  margin-right: 15px;
-  font-size: 18px;
-  color: inherit;
-  transition: color 0.3s ease;
+    margin-right: 15px;
+    font-size: 18px;
+    color: var(--social-color);
+    transition: color 0.3s ease;
 }
 
 .social-icons a:hover {
-  color: #8b5cf6;
+    color: var(--footer-hover-accent);
 }
 
 .footer-bottom {
-  text-align: center;
-  padding-top: 20px;
-  font-size: 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    padding-top: 20px;
+    font-size: 14px;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
 }
 
 .footer:hover .footer-bottom {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid var(--text-color);
 }
 
 .gradient-heading {
-  font-size: 24px;
-  font-weight: 700;
-  background: linear-gradient(to right, #3b82f6, #9333ea);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    font-size: 24px;
+    font-weight: 700;
+    background: var(--gradient-heading);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.heart {
+    color: var(--accent);
 }

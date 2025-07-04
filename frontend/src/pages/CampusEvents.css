@@ -46,7 +46,7 @@ body {
   background: linear-gradient(135deg, #3c82f6 0%, #2149b9 100%); /* dodger-blue to persian-blue */
   border-radius: 12px;
   padding: 12px;
-  color: white;
+  color: var(--text-color);;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,7 +93,7 @@ body {
 
 .filter-toggle {
   background: linear-gradient(135deg, #3c82f6 0%, #2e64d6 100%); /* dodger-blue to mariner */
-  color: white;
+  color: var(--text-color);;
   border: none;
   padding: 10px 20px;
   border-radius: 8px;
@@ -333,7 +333,7 @@ body {
 
 .content-tab.active {
   background: linear-gradient(135deg, #3c82f6 0%, #2e64d6 100%); /* dodger-blue to mariner */
-  color: white;
+  color: var(--text-color);;
   box-shadow: 0 4px 15px rgba(60, 130, 246, 0.3);
 }
 
@@ -406,7 +406,7 @@ body {
   top: 12px;
   left: 12px;
   background: rgba(85, 93, 106, 0.9); /* shuttle-gray with opacity */
-  color: white;
+  color: var(--text-color);;
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 12px;
@@ -419,7 +419,7 @@ body {
   top: 12px;
   right: 12px;
   background: rgba(85, 93, 106, 0.9); /* shuttle-gray with opacity */
-  color: white;
+  color: var(--text-color);;
   padding: 6px 10px;
   border-radius: 6px;
   font-size: 12px;
@@ -582,7 +582,7 @@ body {
 
 .action-btn.going.active {
   background: #16a34a;
-  color: white;
+  color: var(--text-color);;
 }
 
 .action-btn.not-going {
@@ -592,7 +592,7 @@ body {
 
 .action-btn.not-going.active {
   background: #dc2626;
-  color: white;
+  color: var(--text-color);;
 }
 
 .action-btn.maybe {
@@ -602,7 +602,7 @@ body {
 
 .action-btn.maybe.active {
   background: #f59e0b;
-  color: white;
+  color: var(--text-color);;
 }
 
 .action-btn.volunteer {
@@ -612,7 +612,7 @@ body {
 
 .action-btn.volunteer.active {
   background: linear-gradient(135deg, #2e64d6 0%, #2149b9 100%); /* mariner to persian-blue */
-  color: white;
+  color: var(--text-color);;
   box-shadow: 0 4px 15px rgba(46, 100, 214, 0.4);
 }
 

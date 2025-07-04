@@ -1,11 +1,10 @@
-/* --- Google Font --- */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 body {
   font-family: 'Inter', sans-serif;
   margin: 0;
-  background-color: #f9fafb;
-  color: #111827;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 .club-page {
@@ -26,7 +25,7 @@ body {
 
 .subtitle {
   text-align: center;
-  color: #6b7280;
+  color: var(--text-muted);
   max-width: 700px;
   margin: 0 auto 2rem;
   font-size: 1.1rem;
@@ -42,20 +41,27 @@ body {
 .search-bar input {
   padding: 0.8rem 1.2rem;
   border-radius: 9999px;
-  border: 1px solid #d1d5db;
+  border: 1px solid var(--tab-border);
   width: 50%;
   font-size: 1rem;
+  background-color: var(--card-bg);
+  color: var(--text-color);
 }
 
 .search-bar button {
   padding: 0.8rem 1.5rem;
-  background: linear-gradient(90deg, #7b61ff, #b46bff);
+  background: var(--button-bg);
   color: white;
   font-weight: 600;
   border: none;
   border-radius: 9999px;
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background 0.3s ease;
+}
+
+.search-bar button:hover {
+  background: var(--button-hover);
 }
 
 .category-tabs {
@@ -70,20 +76,21 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: white;
-  border: 1px solid #e5e7eb;
+  background: var(--tab-bg);
+  border: 1px solid var(--tab-border);
   padding: 0.6rem 1.2rem;
   border-radius: 9999px;
   cursor: pointer;
   font-size: 0.95rem;
-  color: #374151;
+  color: var(--text-muted);
   transition: all 0.3s ease;
 }
 
 .tab.active-tab {
-  border: 2px solid #6366f1;
+  border: 2px solid var(--active-tab-border);
   font-weight: 600;
-  background-color: #eef2ff;
+  background-color: var(--active-tab-bg);
+  color: var(--text-color);
 }
 
 .featured-title {
@@ -103,7 +110,7 @@ body {
 .club-card-featured {
   border-radius: 1rem;
   overflow: hidden;
-  background: #ffffff;
+  background: var(--card-bg);
   box-shadow: 0 8px 20px rgba(0,0,0,0.05);
   padding: 1.5rem;
   display: flex;
@@ -111,6 +118,7 @@ body {
   gap: 0.75rem;
   position: relative;
   transition: transform 0.2s ease;
+  color: var(--text-color);
 }
 
 .club-card-featured:hover {
@@ -124,7 +132,7 @@ body {
 }
 
 .category {
-  background: #6366f1;
+  background: var(--category-bg);
   color: white;
   padding: 0.3rem 0.8rem;
   font-size: 0.75rem;
@@ -134,7 +142,7 @@ body {
 
 .featured-badge {
   background: white;
-  color: white;
+  color: var(--text-color);
   padding: 0.3rem 0.8rem;
   border-radius: 9999px;
   font-size: 0.75rem;
@@ -142,7 +150,7 @@ body {
 }
 
 .bookmark {
-  color: white;
+  color: var(--text-color);
   font-size: 1.1rem;
   display: flex;
   align-items: center;
@@ -150,13 +158,13 @@ body {
   width: 32px;
   height: 32px;
   border-radius: 9999px;
-  background-color: #f3f4f6;
+  background-color: var(--bookmark-bg);
   cursor: pointer;
   transition: background 0.2s ease;
 }
 
 .bookmark:hover {
-  background-color: #e5e7eb;
+  background-color: var(--bookmark-hover);
 }
 
 .bookmark.active {
@@ -169,15 +177,16 @@ h3 {
 }
 
 .desc {
-  color: #6b7280;
+  color: var(--text-muted);
   font-size: 0.95rem;
 }
 
-.stats, .time-loc {
+.stats,
+.time-loc {
   display: flex;
   justify-content: space-between;
   font-size: 0.9rem;
-  color: #4b5563;
+  color: var(--text-muted);
 }
 
 .tags {
@@ -187,8 +196,8 @@ h3 {
 }
 
 .tag {
-  background: #f1f5f9;
-  color: #374151;
+  background: var(--tag-bg);
+  color: var(--tag-text);
   font-size: 0.8rem;
   padding: 0.3rem 0.8rem;
   border-radius: 9999px;
@@ -204,17 +213,17 @@ h3 {
 
 .join-btn {
   padding: 0.6rem 1.2rem;
-  background: linear-gradient(to right, #3b82f6, #6366f1);
+  background: var(--button-bg);
   color: white;
   border: none;
   border-radius: 9999px;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: background 0.3s ease;
 }
 
 .join-btn:hover {
-  background: linear-gradient(to right, #2563eb, #4f46e5);
+  background: var(--button-hover);
 }
 
 .socials {
@@ -224,11 +233,11 @@ h3 {
 
 .social-icon {
   font-size: 1.1rem;
-  color: #6b7280;
+  color: var(--social-color);
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .social-icon:hover {
   transform: scale(1.2);
-  color: #3b82f6;
+  color: var(--social-hover);
 }

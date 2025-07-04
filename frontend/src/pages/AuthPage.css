@@ -1,6 +1,8 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 .auth-container {
@@ -9,16 +11,22 @@ body {
   align-items: center;
   height: 100vh;
   background: linear-gradient(to right, #e6f3ff, #ffffff, #f3e6ff);
+  transition: background 0.4s ease;
+}
+
+[data-theme="dark"] .auth-container {
+  background: linear-gradient(to right, #1a1c2c, #121212, #1e1e2e);
 }
 
 .auth-box {
-  background-color: white;
+  background-color: var(--card-bg, var(--bg-color));
   padding: 2.5rem;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 400px;
   text-align: center;
+  transition: background 0.3s ease;
 }
 
 .auth-header h1 {
@@ -28,7 +36,7 @@ body {
 
 .auth-header p {
   font-size: 0.9rem;
-  color: #777;
+  color: var(--muted-text-color, #777);
   margin-top: 0;
 }
 
@@ -48,8 +56,9 @@ body {
   border: none;
   font-weight: 600;
   cursor: pointer;
-  background-color: #eee;
+  background-color: var(--toggle-bg, #eee);
   transition: background-color 0.3s ease;
+  color: var(--text-color);
 }
 
 .toggle-btn:first-child {
@@ -64,7 +73,7 @@ body {
 
 .toggle-btn.active {
   background-color: #2563eb;
-  color: white;
+  color: #fff;
 }
 
 .auth-form input {
@@ -72,9 +81,12 @@ body {
   padding: 0.7rem;
   margin: 0.5rem 0;
   border-radius: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--input-border, #ccc);
   outline: none;
   font-size: 0.95rem;
+  background-color: var(--input-bg, #fff);
+  color: var(--text-color);
+  transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
 .auth-form input:focus {
@@ -85,7 +97,7 @@ body {
   width: 100%;
   padding: 0.7rem;
   background-color: #2563eb;
-  color: white;
+  color: #fff;
   border: none;
   border-radius: 12px;
   font-weight: 600;
@@ -101,7 +113,7 @@ body {
 .auth-footer {
   margin-top: 1rem;
   font-size: 0.9rem;
-  color: #666;
+  color: var(--muted-text-color, #666);
 }
 
 .auth-footer span {
@@ -118,9 +130,10 @@ body {
   background-clip: text;
   color: transparent;
 }
+
 .gradient-button {
   background: linear-gradient(to right, #2563eb, #7c3aed);
-  color: white;
+  color: #fff;
   border: none;
   padding: 0.7rem;
   width: 100%;
