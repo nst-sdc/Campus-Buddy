@@ -19,7 +19,6 @@ body {
   text-align: center;
   margin-bottom: 0.5rem;
   background: linear-gradient(90deg, #3b82f6, #9333ea);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
