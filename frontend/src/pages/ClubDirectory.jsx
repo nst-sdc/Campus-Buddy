@@ -11,9 +11,6 @@ import {
   FaGithub,
   FaUsers,
   FaCalendarAlt,
-  FaClock,
-  FaMapMarkerAlt,
-  FaBookmark,
 } from 'react-icons/fa';
 
 const clubsData = [
@@ -24,9 +21,8 @@ const clubsData = [
     rating: 4.8,
     members: 300,
     events: 8,
-    time: 'Wednesdays 7:00 PM',
     tags: ['Web Dev', 'Open Source', 'Hackathons'],
-    social: ['github', 'linkedin', 'email'],
+    social: ['linkedin', 'email'],
     email: 'devclub@university.com',
     bg: '#e0f2ff',
   },
@@ -50,7 +46,6 @@ const clubsData = [
     rating: 4.7,
     members: 180,
     events: 10,
-    time: 'Fridays 5:00 PM',
     tags: ['Drama', 'Dance', 'Theatre'],
     social: ['youtube', 'instagram', 'email'],
     email: 'performing@university.com',
@@ -61,26 +56,36 @@ const clubsData = [
     category: 'Technology',
     featured: true,
     rating: 5.0,
-    members: 150,
+    members: 50,
     events: 4,
-    time: 'Saturdays 10:00 AM',
     tags: ['CP', 'DSA', 'ICPC'],
     social: ['linkedin', 'email'],
     email: 'algonauts@university.com',
     bg: '#ede7f6',
   },
   {
-    name: 'Oratos - Speaking Club',
-    category: 'Arts & Culture',
+    name: 'Orators - Speaking Club',
+    category: 'Public Speaking',
     featured: true,
     rating: 4.6,
-    members: 130,
+    members: 100,
     events: 5,
-    time: 'Tuesdays 6:00 PM',
     tags: ['Debate', 'Public Speaking', 'Anchoring'],
     social: ['instagram', 'email'],
     email: 'oratos@university.com',
     bg: '#f3e5f5',
+  },
+  {
+    name: 'Sports',
+    category: 'Sports',
+    featured: true,
+    rating: 4.6,
+    members: 315,
+    events: 5,
+    tags: ['Badminton', 'Cricket', 'Kabaddi'],
+    social: ['instagram', 'email'],
+    email: 'sports@university.com',
+    bg: 'lightblue',
   },
 ];
 
@@ -111,18 +116,9 @@ const ClubDirectory = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
   const [joinedClubs, setJoinedClubs] = useState([]);
-  const [bookmarked, setBookmarked] = useState([]);
 
   const handleJoin = (clubName) => {
     setJoinedClubs((prev) =>
-      prev.includes(clubName)
-        ? prev.filter((name) => name !== clubName)
-        : [...prev, clubName]
-    );
-  };
-
-  const handleBookmark = (clubName) => {
-    setBookmarked((prev) =>
       prev.includes(clubName)
         ? prev.filter((name) => name !== clubName)
         : [...prev, clubName]
@@ -140,10 +136,9 @@ const ClubDirectory = () => {
     'All Categories',
     'Technology',
     'Arts & Culture',
-    'Sports & Fitness',
-    'Music & Performance',
     'Environment',
-    'Business',
+    'Public Speaking',
+    'Sports'
   ];
 
   return (
@@ -183,9 +178,6 @@ const ClubDirectory = () => {
           <div className="club-card-featured" key={index} style={{ backgroundColor: club.bg }}>
             <div className="top-labels">
               <span className="category">{club.category}</span>
-              <span className="bookmark" onClick={() => handleBookmark(club.name)}>
-                <FaBookmark color={bookmarked.includes(club.name) ? '#9333ea' : '#555'} />
-              </span>
             </div>
             <h3>{club.name}</h3>
             <p className="desc">{club.description || ''}</p>
@@ -197,14 +189,6 @@ const ClubDirectory = () => {
                 <FaCalendarAlt /> {club.events} events
               </span>
             </div>
-            <div className="time-loc">
-              <span>
-                <FaClock /> {club.time}
-              </span>
-              <span>
-                <FaMapMarkerAlt /> {club.location}
-              </span>
-            </div>
             <div className="tags">
               {club.tags.map((tag, i) => (
                 <span key={i} className="tag">
@@ -213,8 +197,13 @@ const ClubDirectory = () => {
               ))}
             </div>
             <div className="actions">
-              <button className="join-btn" onClick={() => handleJoin(club.name)}>
-                {joinedClubs.includes(club.name) ? 'Joined' : 'Join Club'}
+              <button
+                className="join-btn"
+                onClick={() => {
+                  window.location.href = `/join-club?name=${encodeURIComponent(club.name)}`;
+                }}
+              >
+                Join Club
               </button>
               <div className="socials">
                 {club.social.map((s, i) => (
