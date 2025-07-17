@@ -80,7 +80,7 @@
       "poster_url": "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=800&q=80",
       "status": "upcoming",
       "is_active": true,
-      "attendees_count": 18,
+      "attendees_count": 20,
       "created_at": "2025-07-12T14:20:00.000Z",
       "updated_at": "2025-07-16T09:30:00.000Z",
       "duration_hours": 4,
@@ -109,7 +109,7 @@
       "poster_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=800&q=80",
       "status": "upcoming",
       "is_active": true,
-      "attendees_count": 156,
+      "attendees_count": 157,
       "created_at": "2025-07-08T16:45:00.000Z",
       "updated_at": "2025-07-17T14:20:00.000Z",
       "duration_hours": 8,
@@ -648,15 +648,29 @@
       "id": "1bb1",
       "event_id": "evt_002",
       "user_id": "3bd48815-f7f4-42ac-b263-f05a9115dbbc",
-      "status": "going",
-      "updated_at": "2025-07-16T23:15:15.314Z"
+      "status": "not_going",
+      "updated_at": "2025-07-17T09:23:48.364Z"
     },
     {
       "id": "6b8a",
       "event_id": "evt_001",
       "user_id": "3bd48815-f7f4-42ac-b263-f05a9115dbbc",
+      "status": "not_going",
+      "updated_at": "2025-07-17T09:28:10.645Z"
+    },
+    {
+      "id": "06de",
+      "event_id": "evt_003",
+      "user_id": "3bd48815-f7f4-42ac-b263-f05a9115dbbc",
+      "status": "not_going",
+      "updated_at": "2025-07-17T09:21:03.120Z"
+    },
+    {
+      "id": "0895",
+      "event_id": "evt_004",
+      "user_id": "3bd48815-f7f4-42ac-b263-f05a9115dbbc",
       "status": "going",
-      "updated_at": "2025-07-17T00:22:22.066Z"
+      "updated_at": "2025-07-17T09:23:16.601Z"
     }
   ],
   "event_volunteers": [
@@ -714,20 +728,14 @@
       "created_at": "2025-01-15T10:00:00.000Z"
     },
     {
-      "id": "prof_theater_001",
-      "name": "Dr. Sarah Johnson",
-      "email": "sarah.johnson@college.edu",
-      "role": "faculty",
-      "department": "Theater Arts",
-      "created_at": "2025-01-15T10:00:00.000Z"
-    },
-    {
-      "id": "prof_cs_002",
-      "name": "Prof. Michael Chen",
-      "email": "michael.chen@college.edu",
-      "role": "faculty",
+      "id": "user_1752749202024_qp20szzrt",
+      "name": "Melon",
+      "email": "techgenie2050@gmail.com",
+      "role": "student",
+      "batch_year": 2025,
       "department": "Computer Science",
-      "created_at": "2025-01-15T10:00:00.000Z"
+      "phone": null,
+      "created_at": "2025-07-17T10:46:42.025Z"
     }
   ],
   "metadata": {

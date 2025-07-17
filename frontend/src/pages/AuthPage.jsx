@@ -218,6 +218,64 @@ const AuthPage = () => {
 
     return true;
   };
+  const saveUserDataToJson = async (userData, userType, userId) => {
+    try {
+      let jsonData;
+
+      if (userType === "student") {
+        jsonData = {
+          id: userId,
+          name: userData.full_name,
+          email: userData.email,
+          role: "student",
+          batch_year: userData.batch_year
+            ? parseInt(userData.batch_year)
+            : null,
+          department: userData.department,
+          phone: userData.phone || null,
+          created_at: new Date().toISOString(),
+        };
+      } else if (userType === "club") {
+        jsonData = {
+          id: userId,
+          name: userData.full_name, // Contact person name
+          email: userData.email, // Login email
+          role: "club",
+          club_name: userData.club_name,
+          club_category: userData.club_category,
+          established_year: userData.established_year
+            ? parseInt(userData.established_year)
+            : null,
+          description: userData.description || null,
+          club_email: userData.club_email || null,
+          website: userData.website || null,
+          contact_person: userData.contact_person,
+          contact_phone: userData.contact_phone,
+          created_at: new Date().toISOString(),
+        };
+      }
+
+      // Send POST request to your JSON endpoint
+      const response = await fetch("http://localhost:3001/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(jsonData),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      console.log("User data saved to JSON:", result);
+      return { success: true, data: result };
+    } catch (error) {
+      console.error("Error saving user data to JSON:", error);
+      return { success: false, error: error.message };
+    }
+  };
 
   const handleGoogleSignIn = async () => {
     setLoading(true);
@@ -314,6 +372,18 @@ const AuthPage = () => {
       if (!result.success) {
         setError(result.error);
         return;
+      }
+      // Generate user ID (you can use result.user.id if available from Supabase)
+      const userId =
+        result.user?.id ||
+        `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+
+      // Save user data to JSON endpoint
+      const jsonResult = await saveUserDataToJson(userData, userType, userId);
+
+      if (!jsonResult.success) {
+        console.warn("Failed to save to JSON:", jsonResult.error);
+        // Don't fail the signup if JSON save fails, just log it
       }
 
       // Simple success message - just show "check your email"
