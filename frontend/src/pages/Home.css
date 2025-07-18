@@ -74,6 +74,7 @@ body {
     transparent 100%);
   border-radius: 2px;
   animation: beamFall linear infinite;
+  animation-fill-mode: backwards;
   opacity: 0.7;
 }
 
@@ -105,35 +106,35 @@ body {
   left: 25%;
   height: 200px;
   animation-duration: 6s;
-  animation-delay: 2s;
+  animation-delay: 0s;
 }
 
 .beam3 {
   left: 40%;
   height: 100px;
   animation-duration: 10s;
-  animation-delay: 4s;
+  animation-delay: 0s;
 }
 
 .beam4 {
   left: 60%;
   height: 180px;
   animation-duration: 7s;
-  animation-delay: 1s;
+  animation-delay: 0s;
 }
 
 .beam5 {
   left: 75%;
   height: 120px;
   animation-duration: 9s;
-  animation-delay: 3s;
+  animation-delay: 0s;
 }
 
 .beam6 {
   left: 90%;
   height: 160px;
   animation-duration: 5s;
-  animation-delay: 5s;
+  animation-delay: 0s;
 }
 
 .heroSection {
