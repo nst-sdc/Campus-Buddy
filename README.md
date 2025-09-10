@@ -1,18 +1,18 @@
 
-# 🎓 Campus Buddy
+#  Campus Buddy
 
 A centralized platform for **students and clubs at NST** to discover, manage, and track campus events — helping the campus stay connected and engaged.
 
 ---
 
-## 📌 Problem
+##  Problem
 
 At NST-ADYPU, students often miss out on exciting campus events — workshops, fests, and hackathons — due to scattered communication across Slack, WhatsApp, or word of mouth.
 At the same time, event organizers face difficulties in finding volunteers and estimating student turnout, relying on repeated Google Forms and guesswork to manage everything.
 
 ---
 
-## 🚀 Solution
+## Solution
 
 **Campus Buddy** brings everything under one roof with a **student-first, modern web app** that:
 
@@ -26,40 +26,40 @@ At the same time, event organizers face difficulties in finding volunteers and e
 
 ---
 
-## 🔥 Key Features
+##  Key Features
 
-### 👨‍🎓 Students
+### Students
 
-* ✅ **Google Sign-in Authentication**
-* 📅 **Browse Events**: Upcoming & past events in one place
-* 🏷️ **Smart Filtering**: Filter by club, category, department, date
-* 📩 **RSVP System**: "Going", "Not Going", "Maybe", "Volunteer"
-* 📂 **My Events Dashboard**: Track your RSVP’d events
-* 🪪 **Student Profile Card**: Course, year, and stats
-* 🗓️ **Add to Calendar**: One-click calendar integration
-* 📱 **Responsive Design**: Works well on all devices
+* **Google Sign-in Authentication**
+*  **Browse Events**: Upcoming & past events in one place
+*  **Smart Filtering**: Filter by club, category, department, date
+* **RSVP System**: "Going", "Not Going", "Maybe", "Volunteer"
+* **My Events Dashboard**: Track your RSVP’d events
+* **Student Profile Card**: Course, year, and stats
+* **Add to Calendar**: One-click calendar integration
+* **Responsive Design**: Works well on all devices
 
 ---
 
-### 🏛️ Clubs
+### Clubs
 
-* ✅ **Verified Club Login** via Google
-* ➕ **Create/Edit/Delete Events** with ease
-* 📊 **RSVP Analytics**: Track event engagement
-* 🗂️ **Club Profile**: Club name, department, bio, stats
-* 📋 **Club Dashboard**: View and manage all events(Stats/Create/Edit/Delete)
-* 👥 **Attendee Management**: View RSVPs by type
+* **Verified Club Login** via Google
+* **Create/Edit/Delete Events** with ease
+* **RSVP Analytics**: Track event engagement
+* **Club Profile**: Club name, department, bio, stats
+* **Club Dashboard**: View and manage all events(Stats/Create/Edit/Delete)
+* **Attendee Management**: View RSVPs by type
 
 ---
 
 ### 💡 Future Additions
 
-* 🔔 **Email Reminders**: Timely nudges before events
-* 🏆 **Gamification**: Points, badges, and participation streaks
+* **Email Reminders**: Timely nudges before events
+* **Gamification**: Points, badges, and participation streaks
 
 ---
 
-## 💻 Tech Stack
+## Tech Stack
 
 | Layer        | Technology                                                   |
 | ------------ | ------------------------------------------------------------ |
@@ -74,9 +74,9 @@ At the same time, event organizers face difficulties in finding volunteers and e
 ---
 
 
-## 🤝 Getting Started as a Contributor
+## Getting Started as a Contributor
 
-> Want to contribute? Start here 👇
+> Want to contribute? Start here
 
 1. **Fork** this repo
 2. Clone your fork
@@ -124,14 +124,14 @@ At the same time, event organizers face difficulties in finding volunteers and e
    git push origin feature/your-feature
    ```
    
-📌 **Note:** All `.env.local` files are ignored — never push secret keys or tokens.
-> 🔐 Don't forget to configure `.env.local` (and keep it out of version control).
+**Note:** All `.env.local` files are ignored — never push secret keys or tokens.
+> Don't forget to configure `.env.local` (and keep it out of version control).
 
 
 ---
 
 
-## 🛠️ Project Objectives
+## Project Objectives
 
 * Centralize event discovery and management
 * Personalize experience through role-based dashboards
@@ -140,10 +140,10 @@ At the same time, event organizers face difficulties in finding volunteers and e
 
 ---
 
-## 💬 Let’s Build It Together
+## Let’s Build It Together
 
 Campus Buddy is built by students, for students. Whether you're a coder, designer, or organizer — your contribution matters!
 
-> Let’s build something that brings campus life together. 🚀
+> Let’s build something that brings campus life together. 
 
 ---
