@@ -1,15 +1,15 @@
 .navbar {
-  background: rgba(255, 255, 255, 0.673);
+  background: var(--bg-tertiary);
   backdrop-filter: blur(18px) saturate(180%);
   -webkit-backdrop-filter: blur(18px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--border-primary);
+  box-shadow: var(--shadow-primary);
   border-radius: 0 0 24px 24px;
   margin: 0 auto 12px auto;
   position: sticky;
   top: 0;
   z-index: 1000;
-  transition: all 0.3s ease;
+  transition: var(--transition-theme);
   animation: slideDown 0.3s ease-out;
   max-width: 1200px;
   width: 95%;
@@ -33,7 +33,7 @@
 .logo-icon {
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, #2890ff, #5162ff);
+  background: var(--gradient-primary);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -46,7 +46,7 @@
 .logo-text {
   font-weight: 700;
   font-size: 1.4rem;
-  background: linear-gradient(135deg, #2890ff, #5160ff);
+  background: var(--gradient-text);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -66,7 +66,7 @@
   gap: 8px;
   list-style: none;
   padding: 6px;
-  background: rgba(0, 0, 0, 0.04);
+  background: var(--border-tertiary);
   border-radius: 16px;
 }
 
@@ -76,11 +76,11 @@
   gap: 8px;
   padding: 10px 16px;
   border-radius: 12px;
-  color: #374151;
+  color: var(--text-primary);
   text-decoration: none;
   font-weight: 500;
   font-size: 0.9rem;
-  transition: all 0.2s ease;
+  transition: var(--transition-theme);
   position: relative;
 }
 
@@ -88,7 +88,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #2890ff, #5d51ff);
+  background: var(--gradient-secondary);
   opacity: 0;
   transition: opacity 0.2s ease;
   z-index: -1;
@@ -100,20 +100,20 @@
 }
 
 .nav-link:hover {
-  color: #1e40af;
+  color: var(--accent-hover);
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+  box-shadow: var(--shadow-tertiary);
 }
 
 .nav-link.active {
-  background: linear-gradient(135deg, #2890ff, #5d51ff);
+  background: var(--gradient-secondary);
   color: white;
-  box-shadow: 0 4px 12px rgba(55, 55, 55, 0.266);
+  box-shadow: var(--shadow-secondary);
 }
 
 .nav-link.active:hover {
   transform: none;
-  box-shadow: 0 4px 12px rgba(60, 60, 60, 0.251);
+  box-shadow: var(--shadow-secondary);
 }
 
 /* Right Side Controls */
@@ -121,6 +121,52 @@
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: none;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: var(--transition-theme);
+  box-shadow: var(--shadow-tertiary);
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-toggle-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-secondary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.theme-toggle-btn > * {
+  position: relative;
+  z-index: 1;
+}
+
+.theme-toggle-btn:hover::before {
+  opacity: 0.1;
+}
+
+.theme-toggle-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-secondary);
+}
+
+.theme-toggle-btn:active {
+  transform: translateY(0);
 }
 
 .profile-btn {
@@ -133,10 +179,10 @@
   text-decoration: none;
   font-weight: 500;
   font-size: 0.9rem;
-  transition: all 0.3s ease;
+  transition: var(--transition-theme);
   position: relative;
   height: 40px;
-  background: linear-gradient(135deg, #2890ff, #5d51ff);
+  background: var(--gradient-secondary);
   border: none;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(65, 134, 246, 0.4);
@@ -176,11 +222,11 @@
   gap: 8px;
   padding: 10px 16px;
   border-radius: 12px;
-  color: #374151;
+  color: var(--text-primary);
   text-decoration: none;
   font-weight: 500;
   font-size: 0.9rem;
-  transition: all 0.2s ease;
+  transition: var(--transition-theme);
   position: relative;
   height: 40px;
   background: none;
@@ -192,7 +238,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #2890ff, #5d51ff);
+  background: var(--gradient-secondary);
   opacity: 0;
   transition: opacity 0.2s ease;
   z-index: -1;
@@ -204,26 +250,26 @@
 }
 
 .login-btn:hover {
-  color: #1e40af;
+  color: var(--accent-hover);
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+  box-shadow: var(--shadow-tertiary);
 }
 
 .login-btn.active {
-  background: linear-gradient(135deg, #2890ff, #5d51ff);
+  background: var(--gradient-secondary);
   color: white;
-  box-shadow: 0 4px 12px rgba(55, 55, 55, 0.266);
+  box-shadow: var(--shadow-secondary);
 }
 
 .login-btn.active:hover {
   transform: none;
-  box-shadow: 0 4px 12px rgba(60, 60, 60, 0.251);
+  box-shadow: var(--shadow-secondary);
 }
 
 .mobile-toggle {
   display: none;
   cursor: pointer;
-  color: #374151;
+  color: var(--text-primary);
 }
 
 @media (max-width: 768px) {
@@ -240,10 +286,10 @@
     top: 80px;
     right: 12px;
     width: 240px;
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--bg-overlay);
     padding: 16px;
     border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-primary);
     animation: slideInFromRight 0.3s ease-out;
     z-index: 999;
     backdrop-filter: blur(20px);
@@ -257,12 +303,12 @@
     align-items: center;
     gap: 8px;
     text-decoration: none;
-    color: #374151;
-    transition: all 0.2s ease;
+    color: var(--text-primary);
+    transition: var(--transition-theme);
   }
 
   .mobile-menu a:hover {
-    background: linear-gradient(135deg, #2890ff, #5d51ff);
+    background: var(--gradient-secondary);
     color: white;
   }
 

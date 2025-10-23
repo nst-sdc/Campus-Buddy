@@ -12,13 +12,17 @@ import {
   Menu,
   X,
   Building2,
+  Moon,
+  Sun,
 } from "lucide-react";
 import { useAuth } from "../hook/useAuth";
+import { useTheme } from "../hook/useTheme";
 import "./Navbar.css";
 
 const Navbar = ({ userType = "student" }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user, getUserRole, isAuthenticated } = useAuth();
+  const { isDarkMode, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
   const [currentUserRole, setCurrentUserRole] = useState(null);
@@ -108,6 +112,10 @@ const Navbar = ({ userType = "student" }) => {
         </div>
 
         <div className="nav-right">
+          <button className="theme-toggle-btn" onClick={toggleTheme} title={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}>
+            {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+
           {effectiveUserType === "student" ? (
             <div className="nav-links">
               <button 

@@ -1,3 +1,5 @@
+@import './styles/theme.css';
+
 html, body {
     width: 100%;
     margin: 0;
@@ -5,7 +7,8 @@ html, body {
 }
 
 body {
-    background-color: #f7f7f4;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     overscroll-behavior: none;
     scroll-behavior: smooth;
     /* Ensure proper scroll restoration */
