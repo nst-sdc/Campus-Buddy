@@ -247,3 +247,40 @@
   transform: scale(1.2);
   color: #3b82f6;
 }
+
+.club-achievement-details {
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 12px;
+  margin-top: 10px;
+  padding: 8px 14px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+
+.club-achievement-summary {
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.club-achievement-summary:hover {
+  color: #1e88e5;
+}
+
+.club-achievement-list {
+  margin-top: 6px;
+  padding-left: 20px;
+  font-size: 0.9rem;
+  color: #444;
+  list-style-type: disc;
+}
+
+.club-achievement-item {
+  margin-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.club-achievement-item:hover {
+  color: #000;
+}
