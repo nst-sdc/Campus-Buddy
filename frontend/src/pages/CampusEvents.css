@@ -1012,3 +1012,73 @@ body {
   font-weight: 500;
   font-size: 14px;
 }
+
+/* Past Event Message Container */
+.past-event-message {
+  padding: 12px;
+  background: #f3f4f6;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.past-event-text {
+  color: #6b7280;
+  font-size: 14px;
+  text-align: center;
+}
+
+.past-event-info-icon {
+  color: #6b7280;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.past-event-info-icon:hover {
+  color: #374151;
+  transform: scale(1.15);
+}
+
+.past-event-info-icon:active {
+  transform: scale(0.95);
+}
+
+.past-event-info-icon::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #374151;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  margin-bottom: 4px;
+}
+
+.past-event-info-icon:hover::after {
+  opacity: 1;
+}
+
+@media (max-width: 480px) {
+  .past-event-message {
+    padding: 10px;
+  }
+  
+  .past-event-text {
+    font-size: 13px;
+  }
+}

@@ -1,7 +1,7 @@
 // CampusEvents.jsx
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { TrendingUp, Calendar, Star, Heart, Search } from "lucide-react";
+import { TrendingUp, Calendar, Star, Heart, Search, Info } from "lucide-react";
 import { useAuth } from "../hook/useAuth";
 import EventStatisticsModal from "./EventStatistics";
 import EventCardActions from "../components/EventCardActions";
@@ -390,6 +390,7 @@ const CampusEvents = () => {
   const EventCard = ({ event }) => {
     const userResponse = userResponses[event.id];
     const isLoading = respondingToEvent === event.id;
+    const isPastEvent = event.status === "past";
 
     return (
       <div className="event-card">
@@ -448,15 +449,30 @@ const CampusEvents = () => {
             <span className="tag">{event.club}</span>
           </div>
 
-          <EventCardActions
-            event={event}
-            userResponse={userResponse}
-            isLoading={isLoading}
-            onUserResponse={handleUserResponse}
-            onVolunteerResponse={handleVolunteerResponse}
-            onShowStats={handleShowStats}
-            hideNotGoing={true}
-          />
+          {!isPastEvent ? (
+            <EventCardActions
+              event={event}
+              userResponse={userResponse}
+              isLoading={isLoading}
+              onUserResponse={handleUserResponse}
+              onVolunteerResponse={handleVolunteerResponse}
+              onShowStats={handleShowStats}
+              hideNotGoing={true}
+            />
+          ) : (
+            <div className="past-event-message">
+              <span className="past-event-text">
+                This event has ended. RSVPs are no longer available.
+              </span>
+              <span
+                onClick={() => navigate(`/events/${event.id}`)}
+                className="past-event-info-icon"
+                title="View Details"
+              >
+                <Info size={18} />
+              </span>
+            </div>
+          )}
         </div>
       </div>
     );
