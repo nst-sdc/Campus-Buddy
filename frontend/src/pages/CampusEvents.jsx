@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { TrendingUp, Calendar, Star, Heart, Search } from "lucide-react";
 import { useAuth } from "../hook/useAuth";
 import EventStatisticsModal from "./EventStatistics";
-import EventCardActions from "../components/EventCardActions"; // Import the EventCardActions component
+import EventCardActions from "../components/EventCardActions";
 import "./CampusEvents.css";
 import ApiService from "../services/api";
 
@@ -32,16 +32,48 @@ const CampusEvents = () => {
   // Get user role from auth context
   const userRole = getUserRole();
 
+  // Function to check if event is upcoming (today or future)
+  const isEventUpcoming = (eventDate, eventTime) => {
+    try {
+      // Parse the date string (e.g., "December 25, 2024")
+      const parsedDate = new Date(eventDate);
+
+      // Parse time if available (e.g., "2:00 PM")
+      if (eventTime && eventTime !== "Time not set") {
+        const timeMatch = eventTime.match(/(\d+):(\d+)\s*(AM|PM)/i);
+        if (timeMatch) {
+          let hours = parseInt(timeMatch[1]);
+          const minutes = parseInt(timeMatch[2]);
+          const period = timeMatch[3].toUpperCase();
+
+          if (period === "PM" && hours !== 12) hours += 12;
+          if (period === "AM" && hours === 12) hours = 0;
+
+          parsedDate.setHours(hours, minutes, 0, 0);
+        }
+      } else {
+        // If no time specified, set to end of day to be inclusive
+        parsedDate.setHours(23, 59, 59, 999);
+      }
+
+      const now = new Date();
+      return parsedDate >= now;
+    } catch (error) {
+      console.error("Error parsing date:", error);
+      return false;
+    }
+  };
+
   // Function to calculate actual attendees count from database
   const calculateAttendeesCount = async (eventId) => {
     try {
-      const attendanceData = await ApiService.getEventAttendanceByEvent(eventId);
-      // Ensure we have an array
+      const attendanceData = await ApiService.getEventAttendanceByEvent(
+        eventId
+      );
       if (!Array.isArray(attendanceData)) {
         console.error("Expected array but got:", typeof attendanceData);
         return 0;
       }
-      // Count users who are "going" or "maybe"
       const interestedCount = attendanceData.filter((attendance) => {
         return attendance.status === "going" || attendance.status === "maybe";
       }).length;
@@ -58,19 +90,17 @@ const CampusEvents = () => {
       setLoading(true);
       setError(null);
       const eventsData = await ApiService.getEvents();
-      // Fetch clubs for additional data
       const clubsData = await ApiService.getClubs();
       const clubsMap = {};
       clubsData.forEach((club) => {
         clubsMap[club.id] = club;
       });
-      // Transform the data and calculate accurate attendees count
+
       const transformedEvents = await Promise.all(
         eventsData.map(async (event) => {
           const club = clubsMap[event.club_id] || {};
-          // Always fetch fresh attendees count from event_attendance table
           const actualAttendeesCount = await calculateAttendeesCount(event.id);
-          // Provide default values for all fields used in the card
+
           const name = event.title || "Untitled Event";
           const description = event.description || "No description provided.";
           const date = event.event_date
@@ -85,7 +115,10 @@ const CampusEvents = () => {
           const category = club.category || "General";
           const eventType = event.event_type || "General";
           const clubName = club.name || "Unknown Club";
-          const status = event.status || "upcoming";
+
+          // Calculate status based on actual date/time
+          const status = isEventUpcoming(date, time) ? "upcoming" : "past";
+
           const needsVolunteers = event.needs_volunteers || false;
           const tags = event.tags || [category, eventType, clubName];
           const maxVolunteers = event.max_volunteers || 0;
@@ -96,9 +129,11 @@ const CampusEvents = () => {
           const duration_hours = event.duration_hours || null;
           const registration_fee = event.registration_fee || 0;
           const contact_email = event.contact_email || "";
-          // Fallback for image
-          const imageUrl = event.poster_url || "https://via.placeholder.com/400x200?text=Event";
+          const imageUrl =
+            event.poster_url ||
+            "https://via.placeholder.com/400x200?text=Event";
           const hasImage = !!event.poster_url;
+
           return {
             id: event.id,
             name,
@@ -109,7 +144,7 @@ const CampusEvents = () => {
             club: clubName,
             category,
             eventType,
-            attendees: actualAttendeesCount, // Use calculated count from event_attendance
+            attendees: actualAttendeesCount,
             status,
             needsVolunteers,
             imagePlaceholder: getCategoryEmoji(category),
@@ -125,6 +160,8 @@ const CampusEvents = () => {
             duration_hours,
             registration_fee,
             contact_email,
+            rawDate: event.event_date, // Keep raw date for sorting
+            rawTime: event.event_time,
           };
         })
       );
@@ -159,12 +196,13 @@ const CampusEvents = () => {
   const fetchUserResponses = async () => {
     if (!user?.id) return;
     try {
-      // Fetch user's event responses
       const data = await ApiService.getEventAttendance();
       const responses = {};
-      data.filter((attendance) => attendance.user_id === user.id).forEach((attendance) => {
-        responses[attendance.event_id] = attendance.status;
-      });
+      data
+        .filter((attendance) => attendance.user_id === user.id)
+        .forEach((attendance) => {
+          responses[attendance.event_id] = attendance.status;
+        });
       setUserResponses(responses);
     } catch (err) {
       console.error("Error fetching user responses:", err);
@@ -175,13 +213,11 @@ const CampusEvents = () => {
   const refreshEventAttendeesCount = async (eventId) => {
     try {
       const updatedCount = await calculateAttendeesCount(eventId);
-
       setEvents((prev) =>
         prev.map((event) =>
           event.id === eventId ? { ...event, attendees: updatedCount } : event
         )
       );
-
       return updatedCount;
     } catch (err) {
       console.error("Error refreshing attendees count:", err);
@@ -193,7 +229,6 @@ const CampusEvents = () => {
   const handleUserResponse = async (eventId, response) => {
     if (!user?.id || respondingToEvent === eventId) return;
 
-    // Set loading state
     setRespondingToEvent(eventId);
 
     try {
@@ -204,38 +239,34 @@ const CampusEvents = () => {
         updated_at: new Date().toISOString(),
       };
 
-      // Check if user already has a response for this event
       const existingData = (await ApiService.getEventAttendance()).filter(
         (a) => a.event_id === eventId && a.user_id === user.id
       );
       const previousResponse =
         existingData.length > 0 ? existingData[0].status : null;
 
-      // Don't make API call if user is selecting the same response
       if (previousResponse === response) {
         return;
       }
 
       if (existingData.length > 0) {
-        // Update existing record
-        await ApiService.updateEventAttendance(existingData[0].id, attendanceData);
+        await ApiService.updateEventAttendance(
+          existingData[0].id,
+          attendanceData
+        );
       } else {
-        // Create new record
         await ApiService.createEventAttendance(attendanceData);
       }
 
-      // Update local state
       setUserResponses((prev) => ({
         ...prev,
         [eventId]: response,
       }));
 
-      // Refresh the attendees count from the database
       await refreshEventAttendeesCount(eventId);
     } catch (err) {
       console.error("Error handling user response:", err);
     } finally {
-      // Clear loading state
       setRespondingToEvent(null);
     }
   };
@@ -322,7 +353,7 @@ const CampusEvents = () => {
     setSearchQuery("");
   };
 
-  // Replace selectedCategories with selectedCategory in filtering logic
+  // Updated filtering logic with proper date-based status
   const filteredEvents = events.filter((event) => {
     const matchesTab =
       activeTab === "all" ||
@@ -417,7 +448,6 @@ const CampusEvents = () => {
             <span className="tag">{event.club}</span>
           </div>
 
-          {/* Replace the inline buttons with EventCardActions component */}
           <EventCardActions
             event={event}
             userResponse={userResponse}
@@ -432,7 +462,6 @@ const CampusEvents = () => {
     );
   };
 
-  // Show loading if user data is not yet available
   if (!user) {
     return (
       <div className="campus-events">
@@ -443,7 +472,6 @@ const CampusEvents = () => {
     );
   }
 
-  // Show loading while fetching events
   if (loading) {
     return (
       <div className="campus-events">
@@ -454,7 +482,6 @@ const CampusEvents = () => {
     );
   }
 
-  // Show error if there's an issue
   if (error) {
     return (
       <div className="campus-events">
@@ -587,9 +614,44 @@ const CampusEvents = () => {
             ))}
           </div>
 
+          {/* Empty State Messages */}
           {filteredEvents.length === 0 && (
             <div className="no-events">
-              <p>No events found matching your criteria.</p>
+              {activeTab === "upcoming" && (
+                <>
+                  <p
+                    style={{
+                      fontSize: "18px",
+                      fontWeight: "600",
+                      marginBottom: "8px",
+                    }}
+                  >
+                    📅 No Upcoming Events
+                  </p>
+                  <p style={{ color: "#666" }}>
+                    Keep checking back for exciting new events!
+                  </p>
+                </>
+              )}
+              {activeTab === "past" && (
+                <>
+                  <p
+                    style={{
+                      fontSize: "18px",
+                      fontWeight: "600",
+                      marginBottom: "8px",
+                    }}
+                  >
+                    📚 No Past Events
+                  </p>
+                  <p style={{ color: "#666" }}>
+                    Past events will appear here once they're completed.
+                  </p>
+                </>
+              )}
+              {activeTab === "all" && (
+                <p>No events found matching your criteria.</p>
+              )}
             </div>
           )}
         </div>
