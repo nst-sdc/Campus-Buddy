@@ -304,6 +304,27 @@
       "is_active": true,
       "attendees_count": 4,
       "created_at": "2025-07-17T21:37:48.903Z"
+    },
+    {
+      "title": "Halloween",
+      "description": "Spooky Halloween Party",
+      "event_date": "2025-10-31",
+      "event_time": "21:31",
+      "venue": "xcvbn",
+      "created_by": "562817ab-81de-4db9-a846-d3f35a18b2fc",
+      "club_id": "e705",
+      "event_type": "festival",
+      "tags": [],
+      "max_volunteers": 0,
+      "target_batch_year": null,
+      "needs_volunteers": "",
+      "rsvp_limit": null,
+      "poster_url": "https://plus.unsplash.com/premium_photo-1695757262772-76109db6533a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=3135",
+      "status": "upcoming",
+      "is_active": true,
+      "attendees_count": 0,
+      "created_at": "2025-10-23T16:02:37.043Z",
+      "id": "LIO-v_v"
     }
   ],
   "clubs": [
@@ -435,15 +456,15 @@
     },
     {
       "id": "e705",
-      "name": "Occasional Hangouts",
+      "name": "Hangouts",
       "description": "Official club page for SpongeBob",
       "contact_email": "sugarmellon2050@gmail.com",
       "category": "General",
       "is_active": true,
       "created_at": "2025-07-17T20:38:11.769Z",
-      "created_by": "c8827a31-f87b-4638-8984-75f5f4473116",
-      "updated_at": "2025-07-18T17:58:03.194Z",
-      "events_hosted": 1
+      "created_by": "562817ab-81de-4db9-a846-d3f35a18b2fc",
+      "updated_at": "2025-10-23T16:02:37.067Z",
+      "events_hosted": 2
     }
   ],
   "eventTypes": [
@@ -663,6 +684,20 @@
       "user_id": "3bd48815-f7f4-42ac-b263-f05a9115dbbc",
       "status": "going",
       "updated_at": "2025-07-18T08:40:49.170Z"
+    },
+    {
+      "event_id": "evt_005",
+      "user_id": "7cfd9332-57b2-4a88-816d-8a00dcd7e964",
+      "status": "going",
+      "updated_at": "2025-10-23T15:53:56.639Z",
+      "id": "fzY_x-z"
+    },
+    {
+      "event_id": "LIO-v_v",
+      "user_id": "7cfd9332-57b2-4a88-816d-8a00dcd7e964",
+      "status": "maybe",
+      "updated_at": "2025-10-23T16:03:15.566Z",
+      "id": "85YBloZ"
     }
   ],
   "event_volunteers": [
@@ -686,6 +721,13 @@
       "id": "4d28",
       "user_id": "3bd48815-f7f4-42ac-b263-f05a9115dbbc",
       "event_id": "59ac"
+    },
+    {
+      "event_id": "evt_003",
+      "user_id": "7cfd9332-57b2-4a88-816d-8a00dcd7e964",
+      "status": "pending",
+      "created_at": "2025-10-23T15:54:27.806Z",
+      "id": "OuVf_oL"
     }
   ],
   "users": [
