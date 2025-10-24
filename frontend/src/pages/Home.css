@@ -16,6 +16,28 @@
   --transition-smooth: all 0.3s ease;
 }
 
+/* Dark theme overrides */
+[data-theme="dark"] {
+  --primary-color: #818cf8;
+  --accent-color: #22d3ee;
+  --highlight-color: #fde047;
+  --background-light: #0f172a;
+  --text-primary: #000000;
+  --text-secondary: #1f2937;
+  --white: #ffffff;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+}
+
+/* Make specific sections white in dark mode */
+[data-theme="dark"] .howItWorksSection .sectionTitle,
+[data-theme="dark"] .howItWorksSection .sectionSubtitle,
+[data-theme="dark"] .developersSection .sectionTitle,
+[data-theme="dark"] .developersSection .sectionSubtitle {
+  color: var(--white);
+}
+
 * {
   margin-top: 0;
   padding: 0;
@@ -196,6 +218,7 @@ body {
 .welcomeText {
   color: var(--text-primary);
   font-size: 1em;
+  font-weight: 500;
 }
 
 .titleHighlight {
@@ -419,7 +442,7 @@ body {
 }
 
 .statGreen .statIcon {
-  color: #22c55e;
+  color: var(--success);
 }
 
 .statYellow .statIconContainer {
@@ -522,6 +545,7 @@ body {
   gap: 2rem;
 }
 
+/* Ensure all club card text is readable */
 .clubCard {
   background: rgba(255, 255, 255, 0.95);
   border-radius: var(--border-radius);
@@ -533,6 +557,83 @@ body {
   cursor: pointer;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(42, 42, 42, 0.11);
+}
+
+.clubCard * {
+  color: inherit;
+}
+
+.clubCard .clubName {
+  color: var(--text-primary) !important;
+}
+
+.clubCard .clubDescription {
+  color: var(--text-secondary) !important;
+}
+
+.clubCard .clubMembers {
+  color: var(--text-secondary) !important;
+}
+
+/* Dark theme specific overrides for club cards */
+[data-theme="dark"] .clubCard {
+  background: #ffffff;
+}
+
+[data-theme="dark"] .clubCard .clubName {
+  color: #000000 !important;
+}
+
+[data-theme="dark"] .clubCard .clubDescription {
+  color: #1f2937 !important;
+}
+
+[data-theme="dark"] .clubCard .clubMembers {
+  color: #1f2937 !important;
+}
+
+[data-theme="dark"] .clubCard .clubCategory {
+  color: var(--primary-color) !important;
+}
+
+[data-theme="dark"] .clubCard .clubTag {
+  color: var(--primary-color) !important;
+}
+
+/* Ensure all text in club cards is black in dark mode */
+[data-theme="dark"] .clubCard,
+[data-theme="dark"] .clubCard * {
+  color: #000000 !important;
+}
+
+[data-theme="dark"] .clubCard .clubDescription,
+[data-theme="dark"] .clubCard .clubMembers {
+  color: #1f2937 !important;
+}
+
+/* Force black text for all club card content in dark mode */
+[data-theme="dark"] .clubCard div,
+[data-theme="dark"] .clubCard span,
+[data-theme="dark"] .clubCard p,
+[data-theme="dark"] .clubCard h1,
+[data-theme="dark"] .clubCard h2,
+[data-theme="dark"] .clubCard h3,
+[data-theme="dark"] .clubCard h4,
+[data-theme="dark"] .clubCard h5,
+[data-theme="dark"] .clubCard h6 {
+  color: #000000 !important;
+}
+
+/* Specific overrides for different text elements */
+[data-theme="dark"] .clubCard .clubDescription,
+[data-theme="dark"] .clubCard .clubMembers,
+[data-theme="dark"] .clubCard .clubMembers span {
+  color: #1f2937 !important;
+}
+
+[data-theme="dark"] .clubCard .clubCategory,
+[data-theme="dark"] .clubCard .clubTag {
+  color: var(--primary-color) !important;
 }
 
 .clubCard:hover {
@@ -572,7 +673,7 @@ body {
 
 .clubCategory {
   font-size: 0.875rem;
-  color: var(--primary-color);
+  color: var(--primary-color) !important;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -583,13 +684,13 @@ body {
   font-family: 'Poppins', sans-serif;
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--text-primary) !important;
   margin-bottom: 1rem;
 }
 
 .clubDescription {
   font-size: 0.95rem;
-  color: var(--text-secondary);
+  color: var(--text-secondary) !important;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
@@ -620,7 +721,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--text-secondary);
+  color: var(--text-secondary) !important;
   font-size: 0.9rem;
 }
 
@@ -1115,7 +1216,7 @@ body {
 .ctaTitle {
   font-size: 3.5rem;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--text-inverse);
   margin-bottom: 24px;
   line-height: 1.2;
   text-shadow: 0 4px 20px rgba(0,0,0,0.3);
@@ -1152,7 +1253,7 @@ body {
   padding: 18px 36px;
   font-size: 1.1rem;
   font-weight: 600;
-  color: #1d4ed8;
+  color: var(--accent-primary);
   background: rgba(255,255,255,0.95);
   border: none;
   border-radius: 50px;
