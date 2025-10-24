@@ -20,42 +20,64 @@ const clubsData = [
     category: "Technology",
     featured: true,
     rating: 4.8,
-    members: 300,
+    members: 55,
     events: 8,
     description:
-      "A hub for passionate web developers, open-source contributors, and hackathon enthusiasts.",
-    tags: ["Web Dev", "Open Source", "Hackathons"],
+      "The DevClub is the powerhouse of coding at NST — where passionate developers collaborate on open-source projects, build impactful products, and dominate hackathons. From full-stack development to cutting-edge web technologies, this is where innovation takes shape in code.",
+    tags: ["Web Dev", "Open Source", "Hackathons", "Innovation"],
     social: ["linkedin", "email"],
     email: "devclub@university.com",
-    bg: "#e0f2ff",
+    bg: "linear-gradient(135deg, #cfe9ff, #e0f7fa)",
+    achievements: [
+      "Successfully hosted Nirmaan 2025",
+      "Launched 'Campus Buddy' — a student productivity platform",
+      "Over 10 open-source projects contributed to GitHub"
+    ]
   },
   {
     name: "Robotics Club",
     category: "Technology",
     featured: true,
     rating: 4.9,
-    members: 240,
+    members: 60,
     events: 6,
     description:
-      "Build intelligent robots and explore AI, IoT, and mechatronics hands-on.",
-    tags: ["Hardware", "AI", "Mechatronics"],
+      "Dive into the world of intelligent machines with the Robotics Club. Engage in hands-on projects involving AI, IoT, and mechatronics to design, build, and code robots that solve real-world problems — from automation to advanced robotics challenges.",
+    tags: ["Hardware", "AI", "IoT", "Mechatronics", "Automation"],
     social: ["instagram", "email"],
     email: "robotics@university.com",
-    bg: "#e8f5e9",
+    bg: "linear-gradient(135deg, #e8f5e9, #c8e6c9)",
+    achievements: []
   },
   {
-    name: "Creators corner",
+    name: "MINDS - AI Club",
+    category: "Technology",
+    featured: true,
+    rating: 4.9,
+    members: 100,
+    events: 5,
+    description:
+      "MINDS is the official Artificial Intelligence club at NST, uniting students passionate about AI, Machine Learning, and Neural Systems. Through workshops, research, and hackathons, the club empowers members to explore, innovate, and build intelligent solutions that shape the future.",
+    tags: ["AI", "Machine Learning", "Neural Networks", "Innovation", "Research"],
+    social: ["linkedin", "email"],
+    email: "minds@university.com",
+    bg: "linear-gradient(135deg, #f3e5f5, #e1bee7)",
+    achievements: []
+  },
+  {
+    name: "Creators Corner",
     category: "Arts & Culture",
     featured: true,
     rating: 4.7,
     members: 180,
     events: 10,
     description:
-      "Celebrate creativity through visual arts, design, photography, and storytelling.",
-    tags: ["Creativity", "Media", "Art"],
+      "Creators Corner is a vibrant community where imagination meets expression. Explore photography, visual arts, digital design, and storytelling — a space for creators who believe in the power of visuals and narratives to move minds and hearts.",
+    tags: ["Creativity", "Photography", "Art", "Storytelling", "Design"],
     social: ["youtube", "instagram", "email"],
     email: "creatorscorner@university.com",
-    bg: "skyblue",
+    bg: "linear-gradient(135deg, #b3e5fc, #fce4ec)",
+    achievements: []
   },
   {
     name: "Ensemble Club",
@@ -65,11 +87,12 @@ const clubsData = [
     members: 180,
     events: 10,
     description:
-      "A performing arts club for theatre, drama, music, and expressive dance lovers.",
-    tags: ["Drama", "Dance", "music"],
+      "The Ensemble Club brings the stage to life — uniting artists passionate about theatre, drama, music, and expressive dance. It’s a space to perform, direct, and create art that entertains, inspires, and connects audiences emotionally.",
+    tags: ["Drama", "Theatre", "Dance", "Music", "Expression"],
     social: ["youtube", "instagram", "email"],
     email: "ensembleclub@university.com",
-    bg: "#fff8e1",
+    bg: "linear-gradient(135deg, #fff8e1, #ffe082)",
+    achievements: []
   },
   {
     name: "Algonauts - CP Club",
@@ -79,11 +102,12 @@ const clubsData = [
     members: 50,
     events: 4,
     description:
-      "Join coding battles, master DSA, and prep for ICPC with fellow problem solvers.",
-    tags: ["CP", "DSA", "ICPC"],
+      "The Algonauts are a community of competitive programmers who live for logic and optimization. Prepare for ICPC, master DSA, and challenge yourself through regular coding contests that sharpen your algorithmic thinking.",
+    tags: ["CP", "DSA", "ICPC", "Problem Solving", "Coding"],
     social: ["linkedin", "email"],
     email: "algonauts@university.com",
-    bg: "#ede7f6",
+    bg: "linear-gradient(135deg, #ede7f6, #d1c4e9)",
+    achievements: []
   },
   {
     name: "Orators",
@@ -93,11 +117,12 @@ const clubsData = [
     members: 100,
     events: 5,
     description:
-      "Sharpen your voice, debate ideas, and master the art of impactful communication.",
-    tags: ["Debate", "Public Speaking", "Anchoring"],
+      "The Orators Club is the voice of the campus — where confident communicators are made. Engage in debates, extempore, and public speaking sessions that refine articulation, leadership, and persuasion.",
+    tags: ["Debate", "Public Speaking", "Anchoring", "Leadership"],
     social: ["instagram", "email"],
-    email: "oratos@university.com",
-    bg: "#fff8e1",
+    email: "orators@university.com",
+    bg: "linear-gradient(135deg, #fff8e1, #ffe0b2)",
+    achievements: []
   },
   {
     name: "Trailblazers",
@@ -107,40 +132,43 @@ const clubsData = [
     members: 315,
     events: 5,
     description:
-      "Unite with sports enthusiasts and compete in cricket, kabaddi, badminton, and more.",
-    tags: ["Badminton", "Cricket", "Kabaddi"],
+      "Trailblazers is the heart of campus sports — a team of athletes who believe in passion, teamwork, and persistence. Compete in cricket, kabaddi, badminton, and athletics, representing NST with energy and pride.",
+    tags: ["Sports", "Cricket", "Badminton", "Kabaddi", "Teamwork"],
     social: ["instagram", "email"],
     email: "sports@university.com",
-    bg: "skyblue",
+    bg: "linear-gradient(135deg, #bbdefb, #c8e6c9)",
+    achievements: []
   },
   {
     name: "Sharksphere",
-    category: "Entrepreneur",
+    category: "Entrepreneurship",
     featured: true,
     rating: 5.0,
     members: 50,
     events: 4,
     description:
-      "Fuel your startup dreams with mentorship, pitch events, and business simulations.",
-    tags: ["Startup", "Business", "Leadership"],
+      "Sharksphere is the entrepreneurial ecosystem of NST — where visionaries meet investors, and ideas turn into ventures. Participate in startup challenges, investor pitch events, and business strategy sessions that fuel your entrepreneurial journey.",
+    tags: ["Startup", "Business", "Entrepreneurship", "Leadership", "Pitch"],
     social: ["linkedin", "email"],
     email: "sharksphere@university.com",
-    bg: "#e8f5e9",
+    bg: "linear-gradient(135deg, #e8f5e9, #b2dfdb)",
+    achievements: []
   },
   {
-    name: "Stellarquest - Astronomy",
+    name: "StellarQuest - Astronomy Club",
     category: "Space",
     featured: true,
     rating: 4.9,
     members: 240,
     events: 6,
     description:
-      "Explore the cosmos, study stars, and engage in space research and skywatching.",
-    tags: ["Space", "Research", "Astrophysics"],
+      "StellarQuest is where curiosity meets the cosmos. Join us for skywatching nights, space research discussions, and astrophysics projects that bring you closer to understanding the mysteries of the universe.",
+    tags: ["Space", "Astronomy", "Research", "Astrophysics", "Skywatching"],
     social: ["instagram", "email"],
-    email: "robotics@university.com",
-    bg: "#e0f2ff",
-  },
+    email: "stellarquest@university.com",
+    bg: "linear-gradient(135deg, #bbdefb, #d1c4e9)",
+    achievements: []
+  }
 ];
 
 const getSocialIcon = (platform) => {
@@ -193,94 +221,118 @@ const ClubDirectory = () => {
   ];
 
   return (
-    <div className="club-directory-page">
-      <h1 className="club-directory-title">
-        <span>Campus</span> Clubs
-      </h1>
-      <p className="club-directory-subtitle">
-        Discover amazing communities, build lifelong friendships, and explore
-        your passions with like-minded students
-      </p>
+<div className="club-directory-page">
+  <h1 className="club-directory-title">
+    <span>Campus</span> Clubs
+  </h1>
+  <p className="club-directory-subtitle">
+    Discover amazing communities, build lifelong friendships, and explore
+    your passions with like-minded students
+  </p>
 
-      <div className="club-directory-search-bar">
-        <input
-          type="text"
-          placeholder="Search clubs, activities, or interests..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="club-directory-search-input"
-        />
-        <button className="club-directory-search-button">Search</button>
+  <div className="club-directory-search-bar">
+    <input
+      type="text"
+      placeholder="Search clubs, activities, or interests..."
+      value={searchTerm}
+      onChange={(e) => setSearchTerm(e.target.value)}
+      className="club-directory-search-input"
+    />
+    <button className="club-directory-search-button">Search</button>
+  </div>
+
+  <div className="club-directory-category-tabs">
+    {categories.map((cat, i) => (
+      <div
+        key={i}
+        className={`club-directory-tab ${
+          selectedCategory === cat ? "club-directory-active-tab" : ""
+        }`}
+        onClick={() => setSelectedCategory(cat)}
+      >
+        {cat}
       </div>
+    ))}
+  </div>
 
-      <div className="club-directory-category-tabs">
-        {categories.map((cat, i) => (
-          <div
-            key={i}
-            className={`club-directory-tab ${
-              selectedCategory === cat ? "club-directory-active-tab" : ""
-            }`}
-            onClick={() => setSelectedCategory(cat)}
-          >
-            {cat}
-          </div>
-        ))}
-      </div>
+  <h2 className="club-directory-featured-title">Featured Clubs</h2>
 
-      <h2 className="club-directory-featured-title">Featured Clubs</h2>
-      <div className="club-directory-card-list">
-        {filteredClubs.map((club, index) => (
-          <div
-            className="club-directory-card-featured"
-            key={index}
-            style={{ backgroundColor: club.bg }}
-          >
-            <div className="club-directory-top-labels">
-              <span className="club-directory-category">{club.category}</span>
-            </div>
-            <h3 className="club-directory-club-name">{club.name}</h3>
-            <p className="club-directory-desc">{club.description || ""}</p>
-            <div className="club-directory-stats">
-              <span>
-                <FaUsers /> {club.members} members
-              </span>
-              <span>
-                <FaCalendarAlt /> {club.events} events
-              </span>
-            </div>
-            <div className="club-directory-tags">
-              {club.tags.map((tag, i) => (
-                <span key={i} className="club-directory-tag">
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <div className="club-directory-actions">
-              <button
-                className="club-directory-join-btn"
-                onClick={() => navigate("/campus-events")}
-              >
-                Explore
-              </button>
+  <div className="club-directory-card-list">
+    {filteredClubs.map((club, index) => (
+      <div
+        className="club-directory-card-featured"
+        key={index}
+        style={{ background: club.bg }}
+      >
+        <div className="club-directory-top-labels">
+          <span className="club-directory-category">{club.category}</span>
+        </div>
 
-              <div className="club-directory-socials">
-                {club.social.map((s, i) => (
-                  <a
-                    key={i}
-                    href="#"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="club-directory-social-icon"
-                  >
-                    {getSocialIcon(s)}
-                  </a>
+        <h3 className="club-directory-club-name">{club.name}</h3>
+        <p className="club-directory-desc">{club.description || ""}</p>
+
+        <div className="club-directory-stats">
+          <span>
+            <FaUsers /> {club.members} members
+          </span>
+          <span>
+            <FaCalendarAlt /> {club.events} events
+          </span>
+        </div>
+
+        <div className="club-directory-tags">
+          {club.tags.map((tag, i) => (
+            <span key={i} className="club-directory-tag">
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        {/* 🔽 Achievements Section */}
+        {club.achievements && club.achievements.length > 0 && (
+          <div className="club-directory-achievements">
+            <details className="club-achievement-details">
+              <summary className="club-achievement-summary">
+                🌟 Achievements
+              </summary>
+              <ul className="club-achievement-list">
+                {club.achievements.map((ach, i) => (
+                  <li key={i} className="club-achievement-item">
+                  {ach}
+                  </li>
                 ))}
-              </div>
-            </div>
+              </ul>
+            </details>
           </div>
-        ))}
+        )}
+
+        <div className="club-directory-actions">
+          <button
+            className="club-directory-join-btn"
+            onClick={() => navigate("/campus-events")}
+          >
+            Explore
+          </button>
+
+          <div className="club-directory-socials">
+            {club.social.map((s, i) => (
+              <a
+                key={i}
+                href="#"
+                target="_blank"
+                rel="noreferrer"
+                className="club-directory-social-icon"
+              >
+                {getSocialIcon(s)}
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
+    ))}
+  </div>
+</div>
+
   );
 };
 
