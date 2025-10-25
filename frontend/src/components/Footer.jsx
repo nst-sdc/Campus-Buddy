@@ -7,6 +7,8 @@ import {
     FaInstagram,
     FaLinkedinIn,
     FaEnvelope,
+    FaDiscord,
+    FaTwitter,
     FaPhoneAlt,
     FaMapMarkerAlt
 } from 'react-icons/fa';
@@ -31,10 +33,12 @@ const Footer = () => {
                     <h2 className="gradient-heading">Campus-Buddy</h2>
                     <p>Connecting students with campus events and creating memorable experiences.</p>
                     <div className="social-icons">
-                        <a href="https://github.com/nst-sdc/campus-buddy" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
-                        <a href="https://www.youtube.com/@NewtonSchoolOfTechnology-ADYPU" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
-                        <a href="https://www.instagram.com/newtonschooloftechnology_adypu/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-                        <a href="https://www.linkedin.com/school/newton-school-of-technology/posts/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a>
+                        <a href="https://github.com/nst-sdc" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+                        <a href="https://www.youtube.com/@nstsdc-2028" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
+                        <a href="https://www.instagram.com/devclub.nst/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+                        <a href="https://www.linkedin.com/company/nst-sdc" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a>
+                        <a href="https://discord.com/invite/Rg7Qb5xWf3" aria-label="Discord" target="_blank" rel="noopener noreferrer"><FaDiscord /></a>
+                        <a href="https://x.com/NSTSDC_" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
                     </div>
                 </div>
 
@@ -94,8 +98,8 @@ const Footer = () => {
 
                 <div className="footer-section contact">
                     <h3>Contact Us</h3>
-                    <p><FaEnvelope /> <span style={{whiteSpace: 'nowrap'}}>campusbuddy@gmail.com</span></p>
-                    <p><FaPhoneAlt /> 123 456 7890</p>
+                    <p><FaEnvelope /> <span style={{whiteSpace: 'nowrap'}}> support@nstsdc.org</span></p>
+                    {/* <p><FaPhoneAlt /> 123 456 7890</p> */}
                     <p><FaMapMarkerAlt /> Lohegaon, Pune</p>
                 </div>
             </div>
