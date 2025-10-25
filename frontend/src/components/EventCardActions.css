@@ -1,0 +1,231 @@
+/* EventCardActions Component Styles */
+.event-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: auto;
+}
+
+.student-actions,
+.club-actions,
+.default-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.campus-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  min-width: 100px;
+  height: 40px;
+  box-sizing: border-box;
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(60, 130, 246, 0.08);
+  outline: none;
+}
+
+.campus-action-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.campus-action-btn:disabled:hover {
+  transform: none;
+  box-shadow: none;
+  opacity: 0.6;
+}
+
+.campus-action-btn:focus {
+  outline: 2px solid #4388ff;
+  outline-offset: 2px;
+}
+
+/* Button Variants */
+.campus-action-btn.view-details {
+  background: linear-gradient(135deg, #4388ff 0%, #7350ff 100%);
+  color: #fff;
+}
+
+.campus-action-btn.view-details:hover {
+  background: linear-gradient(135deg, #2e64d6 0%, #2149b9 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 24px rgba(67, 136, 255, 0.18);
+}
+
+.campus-action-btn.going {
+  background: linear-gradient(135deg, #34d399 0%, #059669 100%);
+  color: #fff;
+}
+
+.campus-action-btn.going:hover {
+  background: linear-gradient(135deg, #059669 0%, #065f46 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 24px rgba(52, 211, 153, 0.18);
+}
+
+.campus-action-btn.maybe {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e42 100%);
+  color: #fff;
+}
+
+.campus-action-btn.maybe:hover {
+  background: linear-gradient(135deg, #f59e42 0%, #b45309 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 24px rgba(251, 191, 36, 0.18);
+}
+
+.campus-action-btn.not-going {
+  background: linear-gradient(135deg, #f87171 0%, #dc2626 100%);
+  color: #fff;
+}
+
+.campus-action-btn.not-going:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 24px rgba(248, 113, 113, 0.18);
+}
+
+.campus-action-btn.volunteer {
+  background: linear-gradient(135deg, #a78bfa 0%, #6366f1 100%);
+  color: #fff;
+}
+
+.campus-action-btn.volunteer:hover {
+  background: linear-gradient(135deg, #6366f1 0%, #3730a3 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 24px rgba(99, 102, 241, 0.18);
+}
+
+.campus-action-btn.stats {
+  background: linear-gradient(135deg, #c084fc 0%, #7c3aed 100%);
+  color: #fff;
+}
+
+.campus-action-btn.stats:hover {
+  background: linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 24px rgba(192, 132, 252, 0.18);
+}
+
+/* Active States */
+.campus-action-btn.active {
+  background-color: #4CAF50;
+  color: white;
+  border: 2px solid #4CAF50;
+}
+
+.campus-action-btn.going.active {
+  background-color: #4CAF50;
+  border-color: #4CAF50;
+}
+
+.campus-action-btn.maybe.active {
+  background-color: #FF9800;
+  border-color: #FF9800;
+}
+
+.campus-action-btn.not-going.active {
+  background-color: #f44336;
+  border-color: #f44336;
+}
+
+.campus-action-btn.volunteer.active {
+  background-color: #2196F3;
+  border-color: #2196F3;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .event-actions {
+    gap: 6px;
+    justify-content: center;
+  }
+
+  .student-actions,
+  .club-actions,
+  .default-actions {
+    gap: 6px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .campus-action-btn {
+    padding: 8px 14px;
+    font-size: 13px;
+    min-width: 80px;
+    height: 36px;
+    gap: 4px;
+  }
+
+  .campus-action-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .event-actions {
+    gap: 4px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .student-actions,
+  .club-actions,
+  .default-actions {
+    gap: 4px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .campus-action-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+    min-width: 70px;
+    height: 32px;
+    gap: 3px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .campus-action-btn svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .campus-action-btn {
+    padding: 5px 8px;
+    font-size: 11px;
+    min-width: 60px;
+    height: 28px;
+    gap: 2px;
+  }
+
+  .campus-action-btn svg {
+    width: 10px;
+    height: 10px;
+  }
+}

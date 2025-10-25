@@ -484,16 +484,119 @@ body {
   color: #fff;
 }
 
-/* 🔷 Responsive */
+/* Mobile Responsive Styles */
+@media (max-width: 1024px) {
+  .my-events-container {
+    padding-top: 28px;
+  }
+
+  .response-summary-panel {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 0 auto 20px;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .my-events-header h1 {
+    font-size: 3.5rem;
+  }
+
+  .my-events-search-bar {
+    width: 80vw;
+  }
+
+  .my-events-card {
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
+  .my-events-container {
+    padding-top: 24px;
+  }
+
+  .response-summary-panel {
+    margin: 0 16px 20px;
+    padding: 12px;
+    max-width: 100%;
+  }
+
+  .summary-metrics-list {
+    gap: 6px;
+  }
+
+  .summary-metric-item {
+    padding: 6px 10px;
+  }
+
+  .summary-metric-label {
+    font-size: 11px;
+  }
+
+  .summary-metric-number {
+    font-size: 12px;
+  }
+
+  .my-events-header h1 {
+    font-size: 2.8rem;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .my-events-header p {
+    font-size: 14px;
+  }
+
+  .my-events-search-bar {
+    width: 90vw;
+    margin: 16px auto 24px auto;
+    padding: 8px 12px;
+  }
+
+  .search-input {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  .search-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .my-events-categories {
+    padding: 6px 12px;
+    margin: 0 auto 32px auto;
+    gap: 12px;
+  }
+
+  .category-btn {
+    padding: 6px 14px;
+    font-size: 12px;
+  }
+
+  .my-events-tabs {
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .my-events-tabs button {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
   .my-events-card {
     flex-direction: column;
     align-items: center;
+    padding: 16px;
+    gap: 16px;
   }
 
   .my-events-image {
     width: 100%;
-    height: auto;
+    height: 200px;
+    border-radius: 8px;
   }
 
   .my-events-card-body {
@@ -501,8 +604,249 @@ body {
     text-align: center;
   }
 
+  .my-events-card-body h2 {
+    font-size: 18px;
+  }
+
+  .my-events-desc {
+    font-size: 13px;
+  }
+
+  .my-events-meta p {
+    font-size: 12px;
+    margin-bottom: 3px;
+  }
+
+  .my-events-tag {
+    font-size: 11px;
+    padding: 3px 8px;
+    margin-right: 6px;
+    margin-bottom: 4px;
+  }
+
   .my-events-buttons {
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .calendar-btn,
+  .my-events-details-btn,
+  .my-action-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    min-width: 80px;
+    height: 32px;
+  }
+
+  .browse-events-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .my-events-container {
+    padding-top: 20px;
+  }
+
+  .response-summary-panel {
+    margin: 0 8px 16px;
+    padding: 10px;
+  }
+
+  .summary-metric-item {
+    padding: 5px 8px;
+  }
+
+  .summary-metric-label {
+    font-size: 10px;
+  }
+
+  .summary-metric-number {
+    font-size: 11px;
+  }
+
+  .my-events-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .my-events-header p {
+    font-size: 13px;
+  }
+
+  .my-events-search-bar {
+    width: 95vw;
+    margin: 12px auto 20px auto;
+    padding: 6px 10px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .search-input {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  .search-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    width: 100%;
+  }
+
+  .my-events-categories {
+    padding: 4px 8px;
+    margin: 0 auto 24px auto;
+    gap: 8px;
+  }
+
+  .category-btn {
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+
+  .my-events-tabs {
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .my-events-tabs button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .my-events-card {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .my-events-image {
+    height: 160px;
+  }
+
+  .my-events-card-body h2 {
+    font-size: 16px;
+  }
+
+  .my-events-desc {
+    font-size: 12px;
+  }
+
+  .my-events-meta p {
+    font-size: 11px;
+    margin-bottom: 2px;
+  }
+
+  .my-events-tag {
+    font-size: 10px;
+    padding: 2px 6px;
+    margin-right: 4px;
+    margin-bottom: 3px;
+  }
+
+  .my-events-buttons {
+    gap: 6px;
+  }
+
+  .calendar-btn,
+  .my-events-details-btn,
+  .my-action-btn {
+    padding: 5px 10px;
+    font-size: 11px;
+    min-width: 70px;
+    height: 28px;
+  }
+
+  .browse-events-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .no-events {
+    padding: 20px;
+  }
+
+  .no-events p {
+    font-size: 14px;
+  }
+
+  .no-events-hint {
+    font-size: 12px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+  .my-events-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .my-events-header p {
+    font-size: 12px;
+  }
+
+  .my-events-search-bar {
+    width: 98vw;
+    margin: 8px auto 16px auto;
+  }
+
+  .search-input {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  .search-btn {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+
+  .category-btn {
+    padding: 3px 8px;
+    font-size: 10px;
+  }
+
+  .my-events-tabs button {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+
+  .my-events-card {
+    padding: 10px;
+  }
+
+  .my-events-image {
+    height: 140px;
+  }
+
+  .my-events-card-body h2 {
+    font-size: 15px;
+  }
+
+  .my-events-desc {
+    font-size: 11px;
+  }
+
+  .my-events-meta p {
+    font-size: 10px;
+  }
+
+  .my-events-tag {
+    font-size: 9px;
+    padding: 1px 4px;
+  }
+
+  .calendar-btn,
+  .my-events-details-btn,
+  .my-action-btn {
+    padding: 4px 8px;
+    font-size: 10px;
+    min-width: 60px;
+    height: 24px;
+  }
+
+  .browse-events-btn {
+    padding: 6px 12px;
+    font-size: 12px;
   }
 }
 
