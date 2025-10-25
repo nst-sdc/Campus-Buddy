@@ -1301,43 +1301,345 @@ body {
   transform: scale(1.1) rotate(5deg);
 }
 
+/* Mobile Responsive Styles */
+@media (max-width: 1024px) {
+  .campusContainer {
+    padding-top: 80px;
+  }
+
+  .heroSection {
+    padding: 2rem 1.5rem;
+    padding-bottom: 8rem;
+  }
+
+  .heroTitle {
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+  }
+
+  .heroSubtitle {
+    font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+  }
+
+  .heroDescription {
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    padding: 0.8rem;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .clubsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .developersGrid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
 @media (max-width: 768px) {
+  .campusContainer {
+    padding-top: 70px;
+  }
+
+  .heroSection {
+    padding: 1.5rem 1rem;
+    padding-bottom: 6rem;
+    min-height: 80vh;
+  }
+
+  .heroTitle {
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .heroSubtitleContainer {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .heroSubtitle {
+    font-size: clamp(1rem, 3vw, 1.4rem);
+  }
+
+  .heroDescription {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    padding: 0.6rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .heroCtaBtn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  .statsSection {
+    padding: 3rem 1rem;
+    margin-top: -60px;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .statCard {
+    padding: 1.5rem;
+  }
+
+  .topClubsSection {
+    padding: 3rem 1rem;
+    margin-top: -50px;
+  }
+
+  .clubsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .clubCard {
+    max-width: 100%;
+  }
+
+  .howItWorksSection {
+    padding: 3rem 1rem;
+    margin-top: -40px;
+  }
+
+  .stepsContainer {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .whyChooseSection {
+    padding: 3rem 1rem;
+    margin-top: -30px;
+  }
+
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .developersSection {
+    padding: 3rem 1rem;
+    margin-top: -40px;
+  }
+
+  .developersGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .developerCard {
+    max-width: 100%;
+  }
+
+  .faqSection {
+    padding: 3rem 1rem;
+    margin-top: -40px;
+  }
+
+  .faqContainer {
+    max-width: 100%;
+  }
+
   .ctaSection {
-    padding: 80px 0;
+    padding: 60px 1rem;
+    margin-top: -40px;
   }
   
   .ctaTitle {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     margin-bottom: 20px;
   }
   
   .ctaDescription {
-    font-size: 1.1rem;
-    margin-bottom: 32px;
-  }
-  
-  .ctaBtn {
-    padding: 16px 28px;
     font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .ctaSection {
-    padding: 60px 0;
-  }
-  
-  .ctaTitle {
-    font-size: 2rem;
-  }
-  
-  .ctaDescription {
-    font-size: 1rem;
+    margin-bottom: 28px;
   }
   
   .ctaBtn {
     padding: 14px 24px;
     font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .campusContainer {
+    padding-top: 60px;
+  }
+
+  .heroSection {
+    padding: 1rem 0.8rem;
+    padding-bottom: 4rem;
+    min-height: 70vh;
+  }
+
+  .heroTitle {
+    font-size: clamp(1.5rem, 8vw, 2.2rem);
+  }
+
+  .heroSubtitle {
+    font-size: clamp(0.9rem, 4vw, 1.2rem);
+  }
+
+  .heroDescription {
+    font-size: clamp(0.8rem, 3vw, 1rem);
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .heroCtaBtn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .statsSection {
+    padding: 2rem 0.8rem;
+    margin-top: -40px;
+  }
+
+  .statCard {
+    padding: 1.2rem;
+  }
+
+  .statIconContainer {
+    width: 60px;
+    height: 60px;
+  }
+
+  .statIcon {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .topClubsSection {
+    padding: 2rem 0.8rem;
+    margin-top: -30px;
+  }
+
+  .clubContent {
+    padding: 1.5rem;
+  }
+
+  .howItWorksSection {
+    padding: 2rem 0.8rem;
+    margin-top: -20px;
+  }
+
+  .stepCard {
+    padding: 1.5rem;
+  }
+
+  .whyChooseSection {
+    padding: 2rem 0.8rem;
+    margin-top: -15px;
+  }
+
+  .benefitCard {
+    padding: 1.5rem;
+  }
+
+  .developersSection {
+    padding: 2rem 0.8rem;
+    margin-top: -20px;
+  }
+
+  .developerContent {
+    padding: 1.5rem;
+  }
+
+  .faqSection {
+    padding: 2rem 0.8rem;
+    margin-top: -20px;
+  }
+
+  .faqQuestion {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .faqAnswer p {
+    padding: 0 1rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .ctaSection {
+    padding: 40px 0.8rem;
+    margin-top: -20px;
+  }
+  
+  .ctaTitle {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+  }
+  
+  .ctaDescription {
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+  }
+  
+  .ctaBtn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+  .heroTitle {
+    font-size: 1.4rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .heroDescription {
+    font-size: 0.85rem;
+  }
+
+  .heroCtaBtn {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+  }
+
+  .statCard {
+    padding: 1rem;
+  }
+
+  .clubContent {
+    padding: 1.2rem;
+  }
+
+  .stepCard {
+    padding: 1.2rem;
+  }
+
+  .benefitCard {
+    padding: 1.2rem;
+  }
+
+  .developerContent {
+    padding: 1.2rem;
+  }
+
+  .ctaTitle {
+    font-size: 1.6rem;
+  }
+
+  .ctaDescription {
+    font-size: 0.85rem;
+  }
+
+  .ctaBtn {
+    padding: 10px 16px;
+    font-size: 0.85rem;
   }
 }
 

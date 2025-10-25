@@ -30,7 +30,7 @@ server.use(
       "http://localhost:5173",
       /^https:\/\/.*\.render\.com$/, // Allow all Render domains
       /^https:\/\/.*\.onrender\.com$/, // Allow all onrender domains
-      "https://campus-buddy-v62r.vercel.app", // Your specific frontend
+      // "https://campus-buddy-v62r.vercel.app", // Your specific frontend
     ],
     credentials: true,
   })

@@ -272,7 +272,12 @@
   color: var(--text-primary);
 }
 
-@media (max-width: 768px) {
+/* Mobile Responsive Styles */
+@media (max-width: 1024px) {
+  .navbar-container {
+    padding: 12px 20px;
+  }
+  
   .nav-center {
     display: none;
   }
@@ -281,18 +286,90 @@
     display: block;
   }
 
+  .nav-right {
+    gap: 8px;
+  }
+
+  .login-btn span {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .navbar-container {
+    padding: 12px 16px;
+    flex-wrap: wrap;
+  }
+
+  .logo-text {
+    font-size: 1.2rem;
+  }
+
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .mobile-toggle {
+    display: block;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+  }
+
+  .mobile-toggle:hover {
+    background-color: var(--bg-secondary);
+  }
+
+  .nav-right {
+    gap: 6px;
+  }
+
+  .theme-toggle-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .profile-btn {
+    height: 36px;
+    padding: 8px 10px;
+  }
+
+  .login-btn {
+    height: 36px;
+    padding: 8px 12px;
+  }
+
   .mobile-menu {
     position: absolute;
-    top: 80px;
-    right: 12px;
-    width: 240px;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
     background: var(--bg-overlay);
     padding: 16px;
-    border-radius: 16px;
+    border-radius: 0 0 16px 16px;
     box-shadow: var(--shadow-primary);
-    animation: slideInFromRight 0.3s ease-out;
+    animation: slideDown 0.3s ease-out;
     z-index: 999;
     backdrop-filter: blur(20px);
+    border-top: 1px solid var(--border-primary);
+  }
+
+  .mobile-menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
   .mobile-menu a {
@@ -305,6 +382,7 @@
     text-decoration: none;
     color: var(--text-primary);
     transition: var(--transition-theme);
+    width: 100%;
   }
 
   .mobile-menu a:hover {
@@ -312,8 +390,49 @@
     color: white;
   }
 
+  .mobile-menu a.active {
+    background: var(--gradient-secondary);
+    color: white;
+  }
+
   .login-btn span {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 10px 12px;
+  }
+
+  .logo-text {
+    font-size: 1.1rem;
+  }
+
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .mobile-toggle {
+    padding: 6px;
+  }
+
+  .theme-toggle-btn,
+  .profile-btn,
+  .login-btn {
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+  }
+
+  .mobile-menu {
+    padding: 12px;
+  }
+
+  .mobile-menu a {
+    padding: 10px 12px;
+    font-size: 0.9rem;
   }
 }
 
