@@ -1,16 +1,34 @@
-@import './styles/theme.css';
+@import "./styles/theme.css";
 
-html, body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    overscroll-behavior: none;
-    scroll-behavior: smooth;
-    /* Ensure proper scroll restoration */
-    scroll-padding-top: 0;
-} 
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overscroll-behavior: none;
+  scroll-behavior: smooth;
+  /* Ensure proper scroll restoration */
+  scroll-padding-top: 0;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
