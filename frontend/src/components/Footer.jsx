@@ -94,8 +94,8 @@ const Footer = () => {
 
                 <div className="footer-section contact">
                     <h3>Contact Us</h3>
-                    <p><FaEnvelope /> <span style={{whiteSpace: 'nowrap'}}>campusbuddy@gmail.com</span></p>
-                    <p><FaPhoneAlt /> 123 456 7890</p>
+                    <p><FaEnvelope /> <span style={{whiteSpace: 'nowrap'}}> support@nstsdc.org</span></p>
+                    {/* <p><FaPhoneAlt /> 123 456 7890</p> */}
                     <p><FaMapMarkerAlt /> Lohegaon, Pune</p>
                 </div>
             </div>
