@@ -31,6 +31,7 @@ const CreateEventForm = () => {
     tags: [],
     rsvp_limit: "",
     poster_url: "",
+    images: [],
     event_type: "optional",
     target_batch_year: "",
     max_volunteers: "",
@@ -264,6 +265,32 @@ const CreateEventForm = () => {
     setFormData((prev) => ({ ...prev, poster_url: value }));
   };
 
+  const handleImageUrlAdd = (e) => {
+    e.preventDefault();
+    const input = e.target.previousElementSibling;
+    const imageUrl = input.value.trim();
+    
+    if (imageUrl && !formData.images.includes(imageUrl)) {
+      setFormData((prev) => ({
+        ...prev,
+        images: [...prev.images, imageUrl]
+      }));
+      input.value = "";
+    }
+  };
+
+  const handleImageUrlChange = (e) => {
+    const { value } = e.target;
+    // You can add validation here if needed
+  };
+
+  const removeImage = (index) => {
+    setFormData((prev) => ({
+      ...prev,
+      images: prev.images.filter((_, i) => i !== index)
+    }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!user) {
@@ -311,6 +338,7 @@ const CreateEventForm = () => {
           formData.max_volunteers && parseInt(formData.max_volunteers) > 0,
         rsvp_limit: formData.rsvp_limit ? parseInt(formData.rsvp_limit) : null,
         poster_url: formData.poster_url.trim() || null,
+        images: formData.images.length > 0 ? formData.images : null,
         status: "upcoming",
         is_active: true,
         attendees_count: 0,
@@ -342,6 +370,7 @@ const CreateEventForm = () => {
         tags: [],
         rsvp_limit: "",
         poster_url: "",
+        images: [],
         event_type: "optional",
         target_batch_year: "",
         max_volunteers: "",
@@ -931,6 +960,99 @@ const CreateEventForm = () => {
                     e.target.style.display = "block";
                   }}
                 />
+              </div>
+            )}
+          </div>
+
+          {/* Multiple Images Section */}
+          <div className="form-group">
+            <label className="form-label">
+              Additional Event Images (Optional)
+            </label>
+            <p className="upload-subtext" style={{ marginBottom: "1rem" }}>
+              Add multiple images to create a gallery for your event
+            </p>
+            
+            <div className="image-url-input-container">
+              <input
+                type="url"
+                placeholder="https://example.com/image.jpg"
+                className="form-input"
+                onChange={handleImageUrlChange}
+                style={{ marginBottom: "0.5rem" }}
+              />
+              <button
+                type="button"
+                onClick={handleImageUrlAdd}
+                className="add-image-btn"
+                style={{
+                  padding: "8px 16px",
+                  backgroundColor: "#3c82f6",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "6px",
+                  cursor: "pointer",
+                  fontSize: "14px",
+                  fontWeight: "500",
+                }}
+              >
+                Add Image
+              </button>
+            </div>
+
+            {/* Display added images */}
+            {formData.images.length > 0 && (
+              <div className="added-images-container" style={{ marginTop: "1rem" }}>
+                <h4 style={{ fontSize: "14px", fontWeight: "600", marginBottom: "0.5rem", color: "#374151" }}>
+                  Added Images ({formData.images.length})
+                </h4>
+                <div className="images-grid" style={{ 
+                  display: "grid", 
+                  gridTemplateColumns: "repeat(auto-fill, minmax(120px, 1fr))", 
+                  gap: "8px" 
+                }}>
+                  {formData.images.map((imageUrl, index) => (
+                    <div key={index} className="image-preview-container" style={{
+                      position: "relative",
+                      borderRadius: "8px",
+                      overflow: "hidden",
+                      border: "1px solid #e5e7eb"
+                    }}>
+                      <img
+                        src={imageUrl}
+                        alt={`Event image ${index + 1}`}
+                        style={{
+                          width: "100%",
+                          height: "80px",
+                          objectFit: "cover"
+                        }}
+                      />
+                      <button
+                        type="button"
+                        onClick={() => removeImage(index)}
+                        className="remove-image-btn"
+                        style={{
+                          position: "absolute",
+                          top: "4px",
+                          right: "4px",
+                          background: "rgba(0, 0, 0, 0.7)",
+                          color: "white",
+                          border: "none",
+                          borderRadius: "50%",
+                          width: "20px",
+                          height: "20px",
+                          cursor: "pointer",
+                          fontSize: "12px",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center"
+                        }}
+                      >
+                        ×
+                      </button>
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
           </div>
