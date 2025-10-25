@@ -35,99 +35,104 @@ const App = () => {
         >
           <ScrollToTop />
           <Navbar />
-          <div>
-            <Routes>
-              {/* Public routes */}
-              <Route path="/login" element={<AuthPage />} />
-              <Route path="/auth" element={<Navigate to="/login" replace />} />
-              <Route path="/auth/callback" element={<AuthCallback />} />
-              <Route path="/campus-events" element={<CampusEvents />} />
-              <Route path="/home" element={<Home />} />
+          <div className="app-layout">
+            <main className="main-content">
+              <Routes>
+                {/* Public routes */}
+                <Route path="/login" element={<AuthPage />} />
+                <Route
+                  path="/auth"
+                  element={<Navigate to="/login" replace />}
+                />
+                <Route path="/auth/callback" element={<AuthCallback />} />
+                <Route path="/campus-events" element={<CampusEvents />} />
+                <Route path="/home" element={<Home />} />
 
-              {/* Protected routes - accessible by any authenticated user */}
-              <Route
-                path="/clubdashboard"
-                element={
-                  <ProtectedRoute>
-                    <ClubDashboardPage />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/campusevents"
-                element={
-                  <ProtectedRoute>
-                    <CampusEvents />
-                  </ProtectedRoute>
-                }
-              />
+                {/* Protected routes - accessible by any authenticated user */}
+                <Route
+                  path="/clubdashboard"
+                  element={
+                    <ProtectedRoute>
+                      <ClubDashboardPage />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/campusevents"
+                  element={
+                    <ProtectedRoute>
+                      <CampusEvents />
+                    </ProtectedRoute>
+                  }
+                />
 
-              {/* Student-specific routes */}
-              <Route
-                path="/myevents"
-                element={
-                  <ProtectedRoute>
-                    <MyEvents />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/events/:id"
-                element={
-                  <ProtectedRoute>
-                    <EventDetails />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/profilecard"
-                element={
-                  <ProtectedRoute>
-                    <ProfileCard />
-                  </ProtectedRoute>
-                }
-              />
+                {/* Student-specific routes */}
+                <Route
+                  path="/myevents"
+                  element={
+                    <ProtectedRoute>
+                      <MyEvents />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/events/:id"
+                  element={
+                    <ProtectedRoute>
+                      <EventDetails />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/profilecard"
+                  element={
+                    <ProtectedRoute>
+                      <ProfileCard />
+                    </ProtectedRoute>
+                  }
+                />
 
-              {/* Club-specific routes */}
-              <Route
-                path="/clubprofilecard"
-                element={
-                  <ProtectedRoute>
-                    <ClubProfileCard />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/createevent"
-                element={
-                  <ProtectedRoute>
-                    <CreateEventForm />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/clubpage"
-                element={
-                  <ProtectedRoute>
-                    <ClubDirectory />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/eventstatistics"
-                element={
-                  <ProtectedRoute>
-                    <EventStatistics />
-                  </ProtectedRoute>
-                }
-              />
+                {/* Club-specific routes */}
+                <Route
+                  path="/clubprofilecard"
+                  element={
+                    <ProtectedRoute>
+                      <ClubProfileCard />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/createevent"
+                  element={
+                    <ProtectedRoute>
+                      <CreateEventForm />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/clubpage"
+                  element={
+                    <ProtectedRoute>
+                      <ClubDirectory />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/eventstatistics"
+                  element={
+                    <ProtectedRoute>
+                      <EventStatistics />
+                    </ProtectedRoute>
+                  }
+                />
 
-              {/* Default redirect */}
-              <Route path="/" element={<Navigate to="/home" replace />} />
+                {/* Default redirect */}
+                <Route path="/" element={<Navigate to="/home" replace />} />
 
-              {/* Catch all route - redirect to home */}
-              <Route path="*" element={<Navigate to="/home" replace />} />
-            </Routes>
+                {/* Catch all route - redirect to home */}
+                <Route path="*" element={<Navigate to="/home" replace />} />
+              </Routes>
+            </main>
             <Footer />
           </div>
         </Router>
