@@ -4,6 +4,7 @@ import { useAuth } from "../hook/useAuth";
 import "./EventDetails.css";
 import { FaArrowLeft } from "react-icons/fa";
 import ApiService from "../services/api";
+import ImageCarousel from "../components/ImageCarousel";
 
 const EventDetails = () => {
   const { id } = useParams();
@@ -67,6 +68,7 @@ const EventDetails = () => {
         contactEmail: eventData.contact_email,
         durationHours: eventData.duration_hours,
         posterUrl: eventData.poster_url,
+        images: eventData.images || (eventData.poster_url ? [eventData.poster_url] : []),
         tags: eventData.tags || [
           clubData.category,
           eventData.event_type,
@@ -144,26 +146,30 @@ const EventDetails = () => {
       </div>
 
       <div className="event-details-content-wrapper">
-        {/* Event Image/Banner */}
-        <div className="event-details-banner">
-          {event.posterUrl ? (
-            <img
-              src={event.posterUrl}
-              alt={event.title}
-              className="event-details-image"
+        {/* Event Images Carousel */}
+        {event.images && event.images.length > 0 ? (
+          <div className="event-details-banner">
+            <ImageCarousel 
+              images={event.images} 
+              title={`${event.title} - Event Images`}
             />
-          ) : (
+            {event.status === "past" && (
+              <div className="event-details-status-overlay">Past Event</div>
+            )}
+          </div>
+        ) : (
+          <div className="event-details-banner">
             <div className="event-details-placeholder-banner">
               <div className="event-details-placeholder-emoji">
                 {getCategoryEmoji(event.category)}
               </div>
               <h1>{event.title}</h1>
             </div>
-          )}
-          {event.status === "past" && (
-            <div className="event-details-status-overlay">Past Event</div>
-          )}
-        </div>
+            {event.status === "past" && (
+              <div className="event-details-status-overlay">Past Event</div>
+            )}
+          </div>
+        )}
 
         {/* Event Title and Category */}
         <div className="event-details-header-info">
