@@ -58,6 +58,8 @@ body {
   background: linear-gradient(135deg, var(--background-light) 0%, #ffffff 100%);
   margin-top: -100px; 
   padding-top: 90px;
+  opacity: 1 !important;
+  animation: none !important;
 }
 
 .campusContainer::before {
@@ -72,6 +74,14 @@ body {
     radial-gradient(ellipse 600px 800px at 80% 20%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
     radial-gradient(ellipse 400px 400px at 50% 50%, rgba(250, 204, 21, 0.03) 0%, transparent 50%);
   z-index: -1;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out 0.1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 
 .backgroundBeams {
@@ -95,67 +105,73 @@ body {
     rgba(6, 182, 212, 0.4) 80%, 
     transparent 100%);
   border-radius: 2px;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  opacity: 0.8;
   animation: beamFall linear infinite;
-  opacity: 0.7;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 6s;
+  animation-delay: 0s;
+  animation-fill-mode: both;
 }
 
 @keyframes beamFall {
   0% {
-    transform: translateY(-100vh);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
+    transform: translateY(-100vh) translateZ(0);
   }
   100% {
-    transform: translateY(100vh);
-    opacity: 0;
+    transform: translateY(100vh) translateZ(0);
   }
 }
 
 .beam1 {
   left: 10%;
   height: 150px;
-  animation-duration: 8s;
+  animation-duration: 5s;
   animation-delay: 0s;
+  animation-play-state: running;
 }
 
 .beam2 {
   left: 25%;
   height: 200px;
   animation-duration: 6s;
-  animation-delay: 2s;
+  animation-delay: 0.5s;
+  animation-play-state: running;
 }
 
 .beam3 {
   left: 40%;
   height: 100px;
-  animation-duration: 10s;
-  animation-delay: 4s;
+  animation-duration: 7s;
+  animation-delay: 0.2s;
+  animation-play-state: running;
 }
 
 .beam4 {
   left: 60%;
   height: 180px;
-  animation-duration: 7s;
-  animation-delay: 1s;
+  animation-duration: 6.5s;
+  animation-delay: 0.3s;
+  animation-play-state: running;
 }
 
 .beam5 {
   left: 75%;
   height: 120px;
-  animation-duration: 9s;
-  animation-delay: 3s;
+  animation-duration: 5.5s;
+  animation-delay: 0.1s;
+  animation-play-state: running;
 }
 
 .beam6 {
   left: 90%;
   height: 160px;
-  animation-duration: 5s;
-  animation-delay: 5s;
+  animation-duration: 7s;
+  animation-delay: 0.4s;
+  animation-play-state: running;
 }
 
 .heroSection {
