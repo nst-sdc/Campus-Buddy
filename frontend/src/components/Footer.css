@@ -12,7 +12,7 @@
 [data-theme="dark"] .footer-bottom p,
 [data-theme="dark"] .no-bullets a,
 [data-theme="dark"] .footer-section.contact p {
-  color: var(--white);
+  color: var(--text-primary);
 }
 
 .footer::before {

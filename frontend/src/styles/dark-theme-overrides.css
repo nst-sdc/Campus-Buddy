@@ -1,0 +1,126 @@
+/* Dark Theme Global Overrides */
+/* This file ensures all pages have proper dark backgrounds */
+
+/* Force dark background on all major page containers */
+[data-theme="dark"] .club-directory-page,
+[data-theme="dark"] .event-details-container,
+[data-theme="dark"] .campus-events,
+[data-theme="dark"] .my-events-container,
+[data-theme="dark"] .form-container {
+  background-color: #000000 !important;
+  color: #ffffff;
+}
+
+/* Override light backgrounds in components */
+[data-theme="dark"] .profile-stats,
+[data-theme="dark"] .detail-box,
+[data-theme="dark"] .recent-activity,
+[data-theme="dark"] .event-details-section,
+[data-theme="dark"] .event-stats-stat-card {
+  background: #0f0f0f !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .detail-box:hover {
+  background: #1a1a1a !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Override light tag backgrounds */
+[data-theme="dark"] .event-stats-tag,
+[data-theme="dark"] .club-directory-tag,
+[data-theme="dark"] .tag {
+  background: rgba(59, 130, 246, 0.15) !important;
+  color: #60a5fa !important;
+}
+
+/* Override button backgrounds */
+[data-theme="dark"] .secondary-btn {
+  background: #1a1a1a !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .secondary-btn:hover {
+  background: #262626 !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Override card backgrounds */
+[data-theme="dark"] .club-directory-card-featured,
+[data-theme="dark"] .event-card,
+[data-theme="dark"] .my-events-card {
+  background: #0f0f0f !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Override search and input backgrounds */
+[data-theme="dark"] .campus-search-container,
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+  background: #0f0f0f !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] input:focus,
+[data-theme="dark"] textarea:focus,
+[data-theme="dark"] select:focus {
+  background: #1a1a1a !important;
+  border-color: rgba(59, 130, 246, 0.5) !important;
+}
+
+/* Override category badge backgrounds */
+[data-theme="dark"] .category-badge,
+[data-theme="dark"] .event-details-category-badge {
+  background: rgba(59, 130, 246, 0.2) !important;
+  color: #60a5fa !important;
+}
+
+/* Override bookmark backgrounds */
+[data-theme="dark"] .club-directory-bookmark {
+  background: #1a1a1a !important;
+}
+
+[data-theme="dark"] .club-directory-bookmark:hover {
+  background: #262626 !important;
+}
+
+/* Override close button backgrounds */
+[data-theme="dark"] .event-stats-close-button:hover {
+  background: #1a1a1a !important;
+}
+
+/* Override info item backgrounds */
+[data-theme="dark"] .event-details-info-item:hover {
+  background: #1a1a1a !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Override status backgrounds */
+[data-theme="dark"] .event-details-current-status {
+  background: rgba(34, 197, 94, 0.1) !important;
+  border-left-color: #22c55e !important;
+}
+
+/* Override volunteer info backgrounds */
+[data-theme="dark"] .event-details-volunteer-info {
+  background: rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Ensure body background is always dark in dark mode */
+[data-theme="dark"] body {
+  background: #000000 !important;
+}
+
+/* Override CampusEvents specific backgrounds */
+[data-theme="dark"] .campus-events {
+  background: #000000 !important;
+}
+
+/* Override any remaining light backgrounds */
+[data-theme="dark"] [style*="background: #f"],
+[data-theme="dark"] [style*="background-color: #f"] {
+  background: #0f0f0f !important;
+}

@@ -1755,7 +1755,7 @@ body {
 
 .category-btn:hover {
   background: linear-gradient(to right, #bcdbff, #afbfff);
-  color: #000000;
+  color: var(--text-primary);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transform: scale(1.03);
 }

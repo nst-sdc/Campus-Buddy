@@ -16,18 +16,18 @@
   --transition-smooth: all 0.3s ease;
 }
 
-/* Dark theme overrides */
+/* Dark theme overrides - Professional Solid Black */
 [data-theme="dark"] {
-  --primary-color: #818cf8;
+  --primary-color: #3b82f6;
   --accent-color: #22d3ee;
   --highlight-color: #fde047;
-  --background-light: #0f172a;
-  --text-primary: #000000;
-  --text-secondary: #1f2937;
-  --white: #ffffff;
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+  --background-light: #000000;
+  --text-primary: #ffffff;
+  --text-secondary: #a3a3a3;
+  --white: #0f0f0f;
+  --shadow-sm: 0 1px 2px 0 rgba(255, 255, 255, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(255, 255, 255, 0.08);
+  --shadow-lg: 0 10px 15px -3px rgba(255, 255, 255, 0.1);
 }
 
 /* Make specific sections white in dark mode */
@@ -35,7 +35,7 @@
 [data-theme="dark"] .howItWorksSection .sectionSubtitle,
 [data-theme="dark"] .developersSection .sectionTitle,
 [data-theme="dark"] .developersSection .sectionSubtitle {
-  color: var(--white);
+  color: var(--text-primary);
 }
 
 * {
@@ -55,9 +55,14 @@ body {
 .campusContainer {
   position: relative;
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--background-light) 0%, #ffffff 100%);
+  width: 100%;
+  background: var(--background-light);
   margin-top: -100px; 
   padding-top: 90px;
+}
+
+[data-theme="dark"] .campusContainer {
+  background: #000000;
 }
 
 .campusContainer::before {
@@ -72,6 +77,13 @@ body {
     radial-gradient(ellipse 600px 800px at 80% 20%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
     radial-gradient(ellipse 400px 400px at 50% 50%, rgba(250, 204, 21, 0.03) 0%, transparent 50%);
   z-index: -1;
+}
+
+[data-theme="dark"] .campusContainer::before {
+  background: 
+    radial-gradient(ellipse 800px 600px at 20% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 600px 800px at 80% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 400px 400px at 50% 50%, rgba(147, 51, 234, 0.03) 0%, transparent 50%);
 }
 
 .backgroundBeams {
@@ -160,6 +172,7 @@ body {
 
 .heroSection {
   min-height: 100vh;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -167,6 +180,11 @@ body {
   padding-bottom: 10rem;
   position: relative;
   overflow: hidden;
+  background: transparent;
+}
+
+[data-theme="dark"] .heroSection {
+  background: transparent;
 }
 
 .heroContainer {
@@ -186,7 +204,7 @@ body {
 .heroIcon {
   margin-bottom: 1.3rem;
   padding: 1.2rem;
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--bg-card);
   border-radius: 50%;
   border: 2px solid rgba(99, 102, 241, 0.3);
   box-shadow: 
@@ -275,7 +293,7 @@ body {
   backdrop-filter: blur(5px);
   padding: 1rem;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--bg-tertiary);
 }
 
 .heroCtaBtn {
@@ -344,6 +362,12 @@ body {
   margin-bottom: 50px;
 }
 
+[data-theme="dark"] .statsSection {
+  background: rgba(15, 15, 15, 0.8);
+  border-top: 30px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .statsContainer {
   max-width: 1200px;
   margin: 0 auto;
@@ -390,6 +414,14 @@ body {
   transition: var(--transition-smooth);
   cursor: pointer;
   backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] .statCard {
+  background: rgba(15, 15, 15, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    var(--shadow-sm),
+    0 0 20px rgba(59, 130, 246, 0.15);
 }
 
 .statCard:hover {
@@ -513,6 +545,11 @@ body {
   margin-top: -85px;
 }
 
+[data-theme="dark"] .topClubsSection {
+  background: rgba(10, 10, 10, 0.8);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .topClubsContainer {
   max-width: 1200px;
   margin: 0 auto;
@@ -545,7 +582,7 @@ body {
   gap: 2rem;
 }
 
-/* Ensure all club card text is readable */
+/* Club card styling */
 .clubCard {
   background: rgba(255, 255, 255, 0.95);
   border-radius: var(--border-radius);
@@ -559,81 +596,46 @@ body {
   border: 1px solid rgba(42, 42, 42, 0.11);
 }
 
-.clubCard * {
-  color: inherit;
-}
-
 .clubCard .clubName {
-  color: var(--text-primary) !important;
+  color: var(--text-primary);
 }
 
 .clubCard .clubDescription {
-  color: var(--text-secondary) !important;
+  color: var(--text-secondary);
 }
 
 .clubCard .clubMembers {
-  color: var(--text-secondary) !important;
+  color: var(--text-secondary);
 }
 
-/* Dark theme specific overrides for club cards */
+/* Dark theme club cards */
 [data-theme="dark"] .clubCard {
-  background: #ffffff;
+  background: rgba(15, 15, 15, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    var(--shadow-sm),
+    0 0 20px rgba(59, 130, 246, 0.15);
 }
 
 [data-theme="dark"] .clubCard .clubName {
-  color: #000000 !important;
+  color: #ffffff;
 }
 
 [data-theme="dark"] .clubCard .clubDescription {
-  color: #1f2937 !important;
+  color: #a3a3a3;
 }
 
 [data-theme="dark"] .clubCard .clubMembers {
-  color: #1f2937 !important;
+  color: #a3a3a3;
 }
 
 [data-theme="dark"] .clubCard .clubCategory {
-  color: var(--primary-color) !important;
+  color: #3b82f6;
 }
 
 [data-theme="dark"] .clubCard .clubTag {
-  color: var(--primary-color) !important;
-}
-
-/* Ensure all text in club cards is black in dark mode */
-[data-theme="dark"] .clubCard,
-[data-theme="dark"] .clubCard * {
-  color: #000000 !important;
-}
-
-[data-theme="dark"] .clubCard .clubDescription,
-[data-theme="dark"] .clubCard .clubMembers {
-  color: #1f2937 !important;
-}
-
-/* Force black text for all club card content in dark mode */
-[data-theme="dark"] .clubCard div,
-[data-theme="dark"] .clubCard span,
-[data-theme="dark"] .clubCard p,
-[data-theme="dark"] .clubCard h1,
-[data-theme="dark"] .clubCard h2,
-[data-theme="dark"] .clubCard h3,
-[data-theme="dark"] .clubCard h4,
-[data-theme="dark"] .clubCard h5,
-[data-theme="dark"] .clubCard h6 {
-  color: #000000 !important;
-}
-
-/* Specific overrides for different text elements */
-[data-theme="dark"] .clubCard .clubDescription,
-[data-theme="dark"] .clubCard .clubMembers,
-[data-theme="dark"] .clubCard .clubMembers span {
-  color: #1f2937 !important;
-}
-
-[data-theme="dark"] .clubCard .clubCategory,
-[data-theme="dark"] .clubCard .clubTag {
-  color: var(--primary-color) !important;
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.15);
 }
 
 .clubCard:hover {
@@ -767,6 +769,10 @@ body {
   margin-top: -70px;
 }
 
+[data-theme="dark"] .howItWorksSection {
+  background: #000000;
+}
+
 .howItWorksContainer {
   max-width: 1200px;
   margin: 0 auto;
@@ -793,6 +799,14 @@ body {
     0 0 20px rgba(99, 102, 241, 0.05);
   transition: var(--transition-smooth);
   backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] .stepCard {
+  background: rgba(15, 15, 15, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    var(--shadow-sm),
+    0 0 20px rgba(59, 130, 246, 0.15);
 }
 
 .stepCard:hover {
@@ -876,6 +890,11 @@ body {
   margin-top: -60px;
 }
 
+[data-theme="dark"] .whyChooseSection {
+  background: rgba(10, 10, 10, 0.8);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .whyChooseContainer {
   max-width: 1200px;
   margin: 0 auto;
@@ -900,6 +919,14 @@ body {
     0 0 20px rgba(99, 102, 241, 0.05);
   transition: var(--transition-smooth);
   backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] .benefitCard {
+  background: rgba(15, 15, 15, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    var(--shadow-sm),
+    0 0 20px rgba(59, 130, 246, 0.15);
 }
 
 .benefitCard:hover {
@@ -947,6 +974,10 @@ body {
   margin-top: -70px;
 }
 
+[data-theme="dark"] .developersSection {
+  background: #000000;
+}
+
 .developersContainer {
   max-width: 1400px;
   margin: 0 auto;
@@ -969,6 +1000,14 @@ body {
   cursor: pointer;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(67, 50, 255, 0.206);
+}
+
+[data-theme="dark"] .developerCard {
+  background: rgba(15, 15, 15, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    var(--shadow-sm),
+    0 0 20px rgba(59, 130, 246, 0.15);
 }
 
 .developerCard:hover {
@@ -1095,6 +1134,11 @@ body {
   margin-top: -70px;
   margin-bottom: 50px;
 }
+
+[data-theme="dark"] .faqSection {
+  background: rgba(10, 10, 10, 0.8);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
 .faqContainer {
   max-width: 800px;
   margin: 0 auto;
@@ -1118,6 +1162,14 @@ body {
   transition: var(--transition-smooth);
   backdrop-filter: blur(10px);
   overflow: hidden;
+}
+
+[data-theme="dark"] .faqItem {
+  background: rgba(15, 15, 15, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    var(--shadow-sm),
+    0 0 20px rgba(59, 130, 246, 0.15);
 }
 .faqItem:hover {
   box-shadow: 
@@ -1653,6 +1705,15 @@ body {
 }
 
 @keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
   0% {
     transform: rotate(0deg);
   }

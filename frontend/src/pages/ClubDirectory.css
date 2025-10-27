@@ -542,5 +542,5 @@
 }
 
 .club-achievement-item:hover {
-  color: #000;
+  color: var(--text-primary);
 }
