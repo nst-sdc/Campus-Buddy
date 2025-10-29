@@ -74,6 +74,7 @@ const categoryMap = {
 const MyEvents = () => {
   const [events, setEvents] = useState([]);
   const [userResponses, setUserResponses] = useState({});
+  const [userBookmarks, setUserBookmarks] = useState({}); // Track user bookmarks
   const [tab, setTab] = useState("All");
   const [selectedCategory, setSelectedCategory] = useState("All"); // Default to "All"
   const [searchQuery, setSearchQuery] = useState("");
@@ -169,6 +170,21 @@ const MyEvents = () => {
     }
   };
 
+  // Fetch user bookmarks
+  const fetchUserBookmarks = async () => {
+    if (!user?.id) return;
+    try {
+      const data = await ApiService.getUserBookmarks(user.id);
+      const bookmarks = {};
+      data.forEach((bookmark) => {
+        bookmarks[bookmark.event_id] = bookmark.id; // Store bookmark ID for deletion
+      });
+      setUserBookmarks(bookmarks);
+    } catch (err) {
+      console.error("Error fetching user bookmarks:", err);
+    }
+  };
+
   // Handle user response (going, maybe, not_going)
   const handleUserResponse = async (eventId, response) => {
     if (!user?.id) return;
@@ -259,6 +275,38 @@ const MyEvents = () => {
     // navigate(`/events/${event.id}/stats`);
   };
 
+  // Handle bookmark toggle
+  const handleBookmarkToggle = async (eventId) => {
+    if (!user?.id) return;
+    setActionLoading((prev) => ({ ...prev, [eventId]: true }));
+    try {
+      if (userBookmarks[eventId]) {
+        // Remove bookmark
+        await ApiService.deleteEventBookmark(userBookmarks[eventId]);
+        setUserBookmarks((prev) => {
+          const newBookmarks = { ...prev };
+          delete newBookmarks[eventId];
+          return newBookmarks;
+        });
+      } else {
+        // Add bookmark
+        const bookmarkData = {
+          user_id: user.id,
+          event_id: eventId,
+        };
+        const newBookmark = await ApiService.createEventBookmark(bookmarkData);
+        setUserBookmarks((prev) => ({
+          ...prev,
+          [eventId]: newBookmark.id,
+        }));
+      }
+    } catch (err) {
+      console.error("Error toggling bookmark:", err);
+    } finally {
+      setActionLoading((prev) => ({ ...prev, [eventId]: false }));
+    }
+  };
+
   useEffect(() => {
     const savedTab = sessionStorage.getItem("myEventsTab");
     const savedCategory = sessionStorage.getItem("myEventsCategory");
@@ -284,6 +332,7 @@ const MyEvents = () => {
     if (user?.id) {
       fetchUserResponses();
       fetchVolunteerResponses();
+      fetchUserBookmarks();
     }
   }, [user?.id]);
 
@@ -365,10 +414,10 @@ const MyEvents = () => {
     if (tab === "Past") {
       return isPast && matchesCategory && matchesSearch;
     }
-    if (tab === "Favorites") {
-      // Show only events where user is "going" or "volunteer"
+    if (tab === "Bookmarks") {
+      // Show only bookmarked events
       return (
-        (userResponse === "going" || userResponse === "volunteer") &&
+        userBookmarks[event.id] &&
         matchesCategory &&
         matchesSearch
       );
@@ -539,7 +588,7 @@ const MyEvents = () => {
       </div>
 
       <div className="my-events-tabs">
-        {["All", "Upcoming", "Past", "Favorites"].map((t) => (
+        {["All", "Upcoming", "Past", "Bookmarks"].map((t) => (
           <button
             key={t}
             className={tab === t ? "active" : ""}
@@ -547,14 +596,11 @@ const MyEvents = () => {
           >
             {t}
             {/* Optional: Add count badges for each tab */}
-            {t === "Favorites" && (
+            {t === "Bookmarks" && (
               <span className="tab-count">
                 {
                   events.filter((event) => {
-                    const userResponse = userResponses[event.id];
-                    return (
-                      userResponse === "going" || userResponse === "volunteer"
-                    );
+                    return userBookmarks[event.id];
                   }).length
                 }
               </span>
@@ -655,6 +701,8 @@ const MyEvents = () => {
                           onShowStats={handleShowStats}
                           hideViewDetails={false} // Show view details button
                           hideNotGoing={false} // Show not going button
+                          isBookmarked={!!userBookmarks[event.id]}
+                          onBookmarkToggle={handleBookmarkToggle}
                         />
                       </>
                     )}

@@ -2,7 +2,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hook/useAuth";
-import { Eye, CheckCircle, HelpCircle, XCircle, Hand, BarChart3, Pencil, Settings } from "lucide-react";
+import { Eye, CheckCircle, HelpCircle, XCircle, Hand, BarChart3, Pencil, Settings, Heart } from "lucide-react";
 import "./EventCardActions.css";
 
 const EventCardActions = ({
@@ -14,6 +14,8 @@ const EventCardActions = ({
   onShowStats,
   hideViewDetails = false, // New prop to hide view details button
   hideNotGoing = false, // New prop to hide not going button
+  isBookmarked = false, // New prop for bookmark state
+  onBookmarkToggle, // New prop for bookmark toggle handler
 }) => {
   const navigate = useNavigate();
   const { isStudent, isClub } = useAuth();
@@ -50,6 +52,17 @@ const EventCardActions = ({
     onShowStats(event);
   };
 
+  const handleBookmarkClick = () => {
+    if (onBookmarkToggle) {
+      onBookmarkToggle(event.id);
+    }
+  };
+
+  const getBookmarkTooltip = () => {
+    if (isLoading) return "Loading...";
+    return isBookmarked ? "Remove from bookmarks" : "Add to bookmarks";
+  };
+
   // Student Actions
   if (isStudent()) {
     return (
@@ -63,6 +76,20 @@ const EventCardActions = ({
             <Eye size={16} style={{ marginRight: 4 }} /> View Details
           </button>
         )}
+
+        <button
+          className={`campus-action-btn bookmark ${
+            isBookmarked ? "active" : ""
+          }`}
+          onClick={handleBookmarkClick}
+          disabled={isLoading}
+          data-tooltip={getBookmarkTooltip()}
+        >
+          <Heart 
+            size={16} 
+            fill={isBookmarked ? "currentColor" : "none"}
+          />
+        </button>
 
         <button
           className={`campus-action-btn going ${
@@ -166,6 +193,20 @@ const EventCardActions = ({
         )}
 
         <button
+          className={`campus-action-btn bookmark ${
+            isBookmarked ? "active" : ""
+          }`}
+          onClick={handleBookmarkClick}
+          disabled={isLoading}
+          data-tooltip={getBookmarkTooltip()}
+        >
+          <Heart 
+            size={16} 
+            fill={isBookmarked ? "currentColor" : "none"}
+          />
+        </button>
+
+        <button
           className="campus-action-btn stats"
           onClick={handleStatsClick}
           title="View event statistics"
@@ -204,6 +245,20 @@ const EventCardActions = ({
           👁️ View Details
         </button>
       )}
+
+      <button
+        className={`campus-action-btn bookmark ${
+          isBookmarked ? "active" : ""
+        }`}
+        onClick={handleBookmarkClick}
+        disabled={isLoading}
+        data-tooltip={getBookmarkTooltip()}
+      >
+        <Heart 
+          size={16} 
+          fill={isBookmarked ? "currentColor" : "none"}
+        />
+      </button>
     </div>
   );
 };

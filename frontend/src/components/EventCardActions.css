@@ -128,6 +128,46 @@
   box-shadow: 0 6px 24px rgba(192, 132, 252, 0.18);
 }
 
+.campus-action-btn.bookmark {
+  background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
+  color: #fff;
+  min-width: 40px;
+  width: 40px;
+  padding: 10px;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.campus-action-btn.bookmark[data-tooltip] {
+  position: relative;
+}
+
+.campus-action-btn.bookmark[data-tooltip]:hover::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(60, 60, 60, 0.706);
+  color: white;
+  padding: 4px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 1000;
+  margin-bottom: 5px;
+  pointer-events: none;
+}
+
+
+.campus-action-btn.bookmark:hover {
+  background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 24px rgba(244, 114, 182, 0.18);
+}
+
 /* Active States */
 .campus-action-btn.active {
   background-color: #4CAF50;
@@ -155,6 +195,12 @@
   border-color: #2196F3;
 }
 
+.campus-action-btn.bookmark.active {
+  background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
+  border-color: #ec4899;
+  box-shadow: 0 4px 16px rgba(244, 114, 182, 0.3);
+}
+
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
   .event-actions {
@@ -176,6 +222,12 @@
     min-width: 80px;
     height: 36px;
     gap: 4px;
+  }
+
+  .campus-action-btn.bookmark {
+    min-width: 36px;
+    width: 36px;
+    padding: 8px;
   }
 
   .campus-action-btn svg {
@@ -209,6 +261,12 @@
     justify-content: center;
   }
 
+  .campus-action-btn.bookmark {
+    min-width: 32px;
+    width: 32px;
+    padding: 6px;
+  }
+
   .campus-action-btn svg {
     width: 12px;
     height: 12px;
@@ -222,6 +280,12 @@
     min-width: 60px;
     height: 28px;
     gap: 2px;
+  }
+
+  .campus-action-btn.bookmark {
+    min-width: 28px;
+    width: 28px;
+    padding: 5px;
   }
 
   .campus-action-btn svg {

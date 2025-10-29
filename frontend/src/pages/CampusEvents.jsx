@@ -17,6 +17,7 @@ const CampusEvents = () => {
   const [selectedEventTypes, setSelectedEventTypes] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [userResponses, setUserResponses] = useState({});
+  const [userBookmarks, setUserBookmarks] = useState({}); // Track user bookmarks
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -209,6 +210,21 @@ const CampusEvents = () => {
     }
   };
 
+  // Fetch user bookmarks
+  const fetchUserBookmarks = async () => {
+    if (!user?.id) return;
+    try {
+      const data = await ApiService.getUserBookmarks(user.id);
+      const bookmarks = {};
+      data.forEach((bookmark) => {
+        bookmarks[bookmark.event_id] = bookmark.id; // Store bookmark ID for deletion
+      });
+      setUserBookmarks(bookmarks);
+    } catch (err) {
+      console.error("Error fetching user bookmarks:", err);
+    }
+  };
+
   // Refresh attendees count for a specific event
   const refreshEventAttendeesCount = async (eventId) => {
     try {
@@ -292,6 +308,35 @@ const CampusEvents = () => {
     }
   };
 
+  // Handle bookmark toggle
+  const handleBookmarkToggle = async (eventId) => {
+    if (!user?.id) return;
+    try {
+      if (userBookmarks[eventId]) {
+        // Remove bookmark
+        await ApiService.deleteEventBookmark(userBookmarks[eventId]);
+        setUserBookmarks((prev) => {
+          const newBookmarks = { ...prev };
+          delete newBookmarks[eventId];
+          return newBookmarks;
+        });
+      } else {
+        // Add bookmark
+        const bookmarkData = {
+          user_id: user.id,
+          event_id: eventId,
+        };
+        const newBookmark = await ApiService.createEventBookmark(bookmarkData);
+        setUserBookmarks((prev) => ({
+          ...prev,
+          [eventId]: newBookmark.id,
+        }));
+      }
+    } catch (err) {
+      console.error("Error toggling bookmark:", err);
+    }
+  };
+
   // Handle showing statistics modal
   const handleShowStats = (event) => {
     setSelectedEvent(event);
@@ -305,6 +350,7 @@ const CampusEvents = () => {
   useEffect(() => {
     if (user?.id) {
       fetchUserResponses();
+      fetchUserBookmarks();
     }
   }, [user?.id]);
 
@@ -458,6 +504,8 @@ const CampusEvents = () => {
               onVolunteerResponse={handleVolunteerResponse}
               onShowStats={handleShowStats}
               hideNotGoing={true}
+              isBookmarked={!!userBookmarks[event.id]}
+              onBookmarkToggle={handleBookmarkToggle}
             />
           ) : (
             <div className="past-event-message">
