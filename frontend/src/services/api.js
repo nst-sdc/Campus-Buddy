@@ -51,6 +51,11 @@ class ApiService {
     return response.json();
   }
 
+  async getEventBookmarks() {
+    const response = await fetch(`${JSON_SERVER_URL}/event_bookmarks`);
+    return response.json();
+  }
+
   async getUsers() {
     const response = await fetch(`${JSON_SERVER_URL}/users`);
     return response.json();
@@ -124,6 +129,17 @@ class ApiService {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(volunteerData),
+    });
+    return response.json();
+  }
+
+  async createEventBookmark(bookmarkData) {
+    const response = await fetch(`${JSON_SERVER_URL}/event_bookmarks`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(bookmarkData),
     });
     return response.json();
   }
@@ -272,6 +288,16 @@ class ApiService {
     return response.json();
   }
 
+  async deleteEventBookmark(id) {
+    const response = await fetch(
+      `${JSON_SERVER_URL}/event_bookmarks/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
+    return response.json();
+  }
+
   async deleteUser(id) {
     const response = await fetch(`${JSON_SERVER_URL}/users/${id}`, {
       method: "DELETE",
@@ -320,6 +346,20 @@ class ApiService {
   async getEventVolunteersByEvent(eventId) {
     const response = await fetch(
       `${JSON_SERVER_URL}/event_volunteers?event_id=${eventId}`
+    );
+    return response.json();
+  }
+
+  async getEventBookmarksByEvent(eventId) {
+    const response = await fetch(
+      `${JSON_SERVER_URL}/event_bookmarks?event_id=${eventId}`
+    );
+    return response.json();
+  }
+
+  async getUserBookmarks(userId) {
+    const response = await fetch(
+      `${JSON_SERVER_URL}/event_bookmarks?user_id=${userId}`
     );
     return response.json();
   }
