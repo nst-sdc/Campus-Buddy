@@ -130,10 +130,11 @@ const CampusEvents = () => {
           const duration_hours = event.duration_hours || null;
           const registration_fee = event.registration_fee || 0;
           const contact_email = event.contact_email || "";
-          const imageUrl =
-            event.poster_url ||
-            "https://via.placeholder.com/400x200?text=Event";
-          const hasImage = !!event.poster_url;
+          // Use first image from images array, fallback to poster_url, then placeholder
+          const imageUrl = event.images && event.images.length > 0 
+            ? event.images[0] 
+            : event.poster_url || "https://via.placeholder.com/400x200?text=Event";
+          const hasImage = !!(event.images && event.images.length > 0) || !!event.poster_url;
 
           return {
             id: event.id,
